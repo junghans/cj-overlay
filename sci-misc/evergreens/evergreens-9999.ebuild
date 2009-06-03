@@ -23,7 +23,7 @@ EHG_REPO_URI="${HOMEPAGE}"
 
 S="${WORKDIR}/${PN}"
 
-SCRIPTS_TO_INSTALL="fcat findgrep fvim guard in2m4 loggrep qtar"
+SCRIPTS_TO_INSTALL="fcat findgrep fvim guard in2m4 loggrep qtar vimless"
 
 src_install () {
 	pwd
