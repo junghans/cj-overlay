@@ -1,0 +1,24 @@
+# conf.d file for hg serve (build-in web server) 
+#
+# Please check man 1 hg for more information about the options
+# hg serve accepts. You MUST edit the hgweb.config file or this file
+# to include your repositories you wish to serve.
+#
+# Some of the meaningful options are:
+#
+# -p --port            port to listen on (default: 8000)
+# -a --address         address to listen on (default: all interfaces)
+#    --prefix          prefix path to serve from (default: server root)
+# -n --name            name to show in web pages (default: working dir)
+#    --webdir-conf     name of the webdir config file (serve more than one repo)
+# -t --templates       web templates to use
+#    --style           template style to use
+# -6 --ipv6            use IPv6 in addition to IPv4
+#    --certificate     SSL certificate file
+
+# If you want to serve one or more repositories the easiest way is to use 
+# the --webdir-conf option, see documentation in /etc/mercurial/hgweb.config.
+HGSERVE_OPTS="--webdir-conf /etc/mercurial/hgweb.config"
+
+# However you can also serve a single repository using the --name option
+# HGSERVE_OPTS="--prefix /path/to/single-hg-repo"
