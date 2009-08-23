@@ -23,12 +23,10 @@ EHG_REPO_URI="${HOMEPAGE}"
 
 S="${WORKDIR}/${PN}"
 
-SCRIPTS_TO_INSTALL="fcat findgrep fvim guard in2m4 loggrep qtar vimless"
-
 src_install () {
-	pwd
 	local exe
-	for exe in ${SCRIPTS_TO_INSTALL}; do
+	for exe in fcat findgrep fvim guard in2m4 loggrep qtar vimless; do
 		dobin ${exe}
 	done
+	dosym fcat /usr/bin/fless
 }
