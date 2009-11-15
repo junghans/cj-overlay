@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit autotools mercurial
 
-DESCRIPTION="Christoph's useful scripts"
+DESCRIPTION="Some useful scripts for gnuplot"
 HOMEPAGE="http://gnuplotutils.googlecode.com"
 SRC_URI=""
 
