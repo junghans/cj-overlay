@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<layman>
+	<overlay
+		type = "mercurial"
+		src  = "https://cj-overlay.googlecode.com/hg/"
+		contact = "kleiner_otti@gmx.de"
+		status  = "unofficial"
+		name = "cj-overlay">
+		<link>
+			http://cj-overlay.googlecode.com
+		</link>
+    		<description>Christoph's overlay</description>
+	</overlay>
+</layman>
