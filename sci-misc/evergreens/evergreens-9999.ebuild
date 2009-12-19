@@ -7,7 +7,7 @@ EAPI="2"
 inherit mercurial
 
 DESCRIPTION="Christoph's useful scripts"
-HOMEPAGE="http://epia/hg/evergreens/"
+HOMEPAGE="https://evergreens.cj-overlay.googlecode.com/hg/"
 SRC_URI=""
 
 LICENSE="GPL-2"
@@ -17,16 +17,20 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="dev-lang/perl
-		sys-apps/gawk"
+		sys-apps/gawk
+		dev-util/tkdiff
+		dev-lang/tk"
 
 EHG_REPO_URI="${HOMEPAGE}"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/hg"
 
 src_install () {
 	local exe
-	for exe in fcat findgrep fvim guard in2m4 loggrep qtar vimless; do
+	for exe in fcat findgrep fvim guard in2m4 loggrep qtar sshalias vimless; do
 		dobin ${exe}
 	done
 	dosym fcat /usr/bin/fless
+	dosym fcat /usr/bin/fview
+	dodoc README
 }
