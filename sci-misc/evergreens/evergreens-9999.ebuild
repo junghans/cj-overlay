@@ -13,7 +13,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
-IUSE=""
+IUSE="examples"
 
 DEPEND=""
 RDEPEND="dev-lang/perl
@@ -33,4 +33,6 @@ src_install () {
 	dosym fcat /usr/bin/fless
 	dosym fcat /usr/bin/fview
 	dodoc README
+	exeinto /usr/share/${PN}/examples
+	doexe skeleton.*
 }
