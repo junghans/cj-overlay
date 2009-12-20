@@ -7,7 +7,7 @@ EAPI="2"
 inherit mercurial
 
 DESCRIPTION="Christoph's useful scripts"
-HOMEPAGE="https://evergreens.cj-overlay.googlecode.com/hg/"
+HOMEPAGE="http://code.google.com/p/cj-overlay/source/list?repo=evergreens"
 SRC_URI=""
 
 LICENSE="GPL-2"
@@ -21,7 +21,7 @@ RDEPEND="dev-lang/perl
 		dev-util/tkdiff
 		dev-lang/tk"
 
-EHG_REPO_URI="${HOMEPAGE}"
+EHG_REPO_URI="https://evergreens.cj-overlay.googlecode.com/hg/"
 
 S="${WORKDIR}/hg"
 
