@@ -12,14 +12,13 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
-IUSE="examples"
+KEYWORDS="amd64 x86"
+IUSE="examples tk"
 
 DEPEND=""
 RDEPEND="dev-lang/perl
 		sys-apps/gawk
-		dev-util/tkdiff
-		dev-lang/tk"
+		tk? ( dev-util/tkdiff )"
 
 EHG_REPO_URI="https://evergreens.cj-overlay.googlecode.com/hg/"
 
