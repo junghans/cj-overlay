@@ -22,6 +22,7 @@ DEPEND="!sci-chemistry/votca-csg
 	sci-libs/gsl
 	>=dev-libs/boost-1.33.1
 	sci-libs/votca-tools-dev
+	!<=sci-chemistry/gromacs-4.0.5[mpi]
 	=sci-chemistry/gromacs-4.0*
 	dev-lang/perl
 	app-shells/bash"
