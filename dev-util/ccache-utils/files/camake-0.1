@@ -1,0 +1,13 @@
+#! /bin/bash
+
+if [ "$1" = "--help" ]; then
+  echo "Just a wrapper which calls 'ccached make'"
+  exit 0
+fi
+
+if [ "$1" = "-q" ]; then
+  shift
+  ccached -q make $@
+else
+  ccached make $@
+fi 
