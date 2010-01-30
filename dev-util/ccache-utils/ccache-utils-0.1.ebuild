@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-DESCRIPTION="Some useful ccache wrapers"
+DESCRIPTION="Some useful ccache wrappers"
 HOMEPAGE="http://cj-overlay.googlecode.com"
 SRC_URI=""
 
