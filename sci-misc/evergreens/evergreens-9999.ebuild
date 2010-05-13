@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,10 +25,7 @@ EHG_REPO_URI="https://evergreens.cj-overlay.googlecode.com/hg/"
 S="${WORKDIR}/hg"
 
 src_install () {
-	local exe
-	for exe in fcat findgrep fvim guard hgrep in2m4 loggrep qtar sshalias vimless; do
-		dobin ${exe}
-	done
+	dobin fcat findgrep fvim guard hgrep loggrep sshalias vimless
 	dosym fcat /usr/bin/fless
 	dosym fcat /usr/bin/fview
 	dodoc README
