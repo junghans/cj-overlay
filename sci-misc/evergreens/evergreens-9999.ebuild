@@ -26,7 +26,7 @@ S="${WORKDIR}/hg"
 
 src_install () {
 	local exe
-	for exe in fcat findgrep fvim guard in2m4 loggrep qtar sshalias vimless; do
+	for exe in fcat findgrep fvim guard hgrep in2m4 loggrep qtar sshalias vimless; do
 		dobin ${exe}
 	done
 	dosym fcat /usr/bin/fless

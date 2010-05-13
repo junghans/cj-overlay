@@ -22,7 +22,7 @@ RDEPEND="dev-lang/perl
 		sci-visualization/gnuplot
 		virtual/latex-base
 		app-text/txt2tags
-		virtual/ghostscript
+		app-text/ghostscript-gpl
 		sys-process/procps
 		sys-apps/coreutils"
 
