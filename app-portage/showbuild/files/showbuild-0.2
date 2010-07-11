@@ -1,0 +1,22 @@
+#!/bin/bash
+
+log="/var/tmp/portage/*/*/temp/build.log"
+
+if [ "$(echo $log)" = "$log" ]; then
+  echo "No running build found"
+  exit 0
+elif [ -z "$1" ]; then
+  echo "Running builds - use '${0##*/} NUMBER' to select"
+  ls -1 $log | sed "s@${log%%\**}\([^/]*\)/\([^/]*\)${log##*\*}@\2          (\1)@" | cat -n | column -c 3
+else
+  file="$(ls -1 $log | sed -n "${1}p")"
+  if [ -z "${file}" ]; then
+    echo "Build number $1 not found"
+    exit 1
+  elif [ ! -f "${file}" ]; then
+    echo "Build number $1 was gone in the meanwhile"
+    exit 1
+  else
+    tailf $file
+  fi
+fi
