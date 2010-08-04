@@ -18,6 +18,10 @@ IUSE="examples tk"
 DEPEND=""
 RDEPEND="dev-lang/perl
 		sys-apps/gawk
+		sys-apps/sed
+		app-shells/bash
+		app-text/wdiff
+		app-editors/vim
 		tk? ( dev-util/tkdiff )"
 
 EHG_REPO_URI="https://evergreens.cj-overlay.googlecode.com/hg/"
@@ -25,7 +29,7 @@ EHG_REPO_URI="https://evergreens.cj-overlay.googlecode.com/hg/"
 S="${WORKDIR}/hg"
 
 src_install () {
-	dobin fcat findgrep fvim guard hgrep loggrep sshalias vimless
+	dobin fcat findgrep fvim guard hgrep loggrep sshalias vimless vimmanless cwdiff
 	dosym fcat /usr/bin/fless
 	dosym fcat /usr/bin/fview
 	dodoc README
