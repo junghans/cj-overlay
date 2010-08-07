@@ -21,6 +21,7 @@ RDEPEND="dev-lang/perl
 		sys-apps/sed
 		app-shells/bash
 		app-text/wdiff
+		app-text/a2ps
 		app-editors/vim
 		tk? ( dev-util/tkdiff )"
 
