@@ -6,15 +6,15 @@ EAPI=3
 
 inherit nsplugins
 
-DESCRIPTION="Google Talk Plugin"
+DESCRIPTION="Video chat browser plug-in for Google Talk"
 SRC_URI="x86? ( http://dl.google.com/linux/direct/google-talkplugin_current_i386.deb )
 	amd64? ( http://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb )"
 HOMEPAGE="http://www.google.com/chat/video"
-IUSE=""
+IUSE="cuda"
 SLOT="0"
 
 KEYWORDS="-* ~amd64 ~x86"
-LICENSE=""
+LICENSE="UNKNOWN"
 RESTRICT="strip mirror"
 
 #from debian control file and ldd
@@ -27,16 +27,43 @@ RDEPEND="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	dev-libs/glib:2
 	x11-libs/gtk+:2
 	media-libs/libpng:1.2
+	media-libs/libpng:1.4
 	dev-libs/openssl
 	x11-libs/libX11
 	x11-libs/libXfixes
-	x11-libs/libXt"
+	x11-libs/libXt
+	x11-libs/libxcb
+	x11-libs/libXau
+	x11-libs/libXdmcp
+	x11-libs/libXext
+	x11-libs/libXxf86vm
+	x11-libs/libXdamage
+	x11-libs/libxcb
+	x11-libs/libdrm
+	x11-libs/libSM
+	x11-libs/libICE
+	x11-libs/pango
+	x11-libs/libXi
+	dev-libs/atk
+	x11-libs/cairo
+	x11-libs/libXrandr
+	x11-libs/libXcursor
+	x11-libs/libXcomposite
+	x11-libs/libXrender
+	dev-libs/expat
+	sys-apps/util-linux
+	x11-libs/pixman
+	x11-libs/xcb-util
+	cuda? ( media-gfx/nvidia-cg-toolkit )
+	sys-apps/lsb-release
+	sys-libs/zlib"
 
-QA_TEXTRELS_x86="opt/google/talkplugin/libnpgtpo3dautoplugin.so
-	opt/google/talkplugin/libnpgoogletalk.so"
+INSTALL_BASE="/opt/google/talkplugin"
 
-QA_TEXTRELS_amd64="opt/google/talkplugin/libnpgtpo3dautoplugin.so
-	opt/google/talkplugin/libnpgoogletalk64.so"
+[ "${ARCH}" = "amd64" ] && SO_SUFFIX="64" || SO_SUFFIX=""
+
+QA_TEXTRELS="opt/google/talkplugin/libnpgtpo3dautoplugin.so
+	opt/google/talkplugin/libnpgoogletalk${SO_SUFFIX}.so"
 
 src_unpack() {
 	unpack ${A} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
@@ -45,18 +72,16 @@ src_unpack() {
 src_install() {
 	dodoc ./usr/share/doc/google-talkplugin/changelog.Debian
 
-	cd "opt/google/talkplugin"
-	exeinto "/opt/google/talkplugin"
-	doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so
-	inst_plugin /opt/google/talkplugin/libnpgtpo3dautoplugin.so
+	cd ".${INSTALL_BASE}"
+	exeinto "${INSTALL_BASE}"
+	doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so	libnpgoogletalk"${SO_SUFFIX}".so
+	inst_plugin "${INSTALL_BASE}"/libnpgtpo3dautoplugin.so
+	inst_plugin "${INSTALL_BASE}"/libnpgoogletalk"${SO_SUFFIX}".so
 
-	use x86 && doexe libnpgoogletalk.so
-	use x86 && inst_plugin /opt/google/talkplugin/libnpgoogletalk.so
-	
-	use amd64 && doexe libnpgoogletalk64.so
-	use amd64 && inst_plugin /opt/google/talkplugin/libnpgoogletalk64.so
-
-	exeinto "/opt/google/talkplugin/lib"
-	cd lib
-	doexe *.so
+	#install bundled libCg
+	if ! use cuda; then
+		cd lib
+		exeinto "${INSTALL_BASE}/lib"
+		doexe *.so
+	fi
 }
