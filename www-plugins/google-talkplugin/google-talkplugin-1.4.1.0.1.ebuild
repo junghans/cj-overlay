@@ -27,7 +27,7 @@ RDEPEND="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	dev-libs/glib:2
 	x11-libs/gtk+:2
 	media-libs/libpng:1.2
-	media-libs/libpng:1.4
+	media-libs/libpng:0
 	dev-libs/openssl
 	x11-libs/libX11
 	x11-libs/libXfixes
