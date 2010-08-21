@@ -10,7 +10,7 @@ DESCRIPTION="Video chat browser plug-in for Google Talk"
 SRC_URI="x86? ( http://dl.google.com/linux/direct/google-talkplugin_current_i386.deb )
 	amd64? ( http://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb )"
 HOMEPAGE="http://www.google.com/chat/video"
-IUSE="cuda"
+IUSE="system-libCg"
 SLOT="0"
 
 KEYWORDS="-* ~amd64 ~x86"
@@ -54,7 +54,7 @@ RDEPEND="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	sys-apps/util-linux
 	x11-libs/pixman
 	x11-libs/xcb-util
-	cuda? ( media-gfx/nvidia-cg-toolkit )
+	system-libCg? ( media-gfx/nvidia-cg-toolkit )
 	sys-apps/lsb-release
 	sys-libs/zlib"
 
@@ -79,7 +79,7 @@ src_install() {
 	inst_plugin "${INSTALL_BASE}"/libnpgoogletalk"${SO_SUFFIX}".so
 
 	#install bundled libCg
-	if ! use cuda; then
+	if ! use system-libCg; then
 		cd lib
 		exeinto "${INSTALL_BASE}/lib"
 		doexe *.so
