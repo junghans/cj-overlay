@@ -10,7 +10,7 @@ DESCRIPTION="Video chat browser plug-in for Google Talk"
 SRC_URI="x86? ( http://dl.google.com/linux/direct/google-talkplugin_current_i386.deb )
 	amd64? ( http://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb )"
 HOMEPAGE="http://www.google.com/chat/video"
-IUSE="system-libCg"
+IUSE="+system-libCg"
 SLOT="0"
 
 KEYWORDS="-* ~amd64 ~x86"
