@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer>
+  <email>christoph.junghans@googlemail.com</email>
+</maintainer>
+<use>
+  <flag name='system-libCg'>Use system libCg instead of bundled one</flag>
+  <flag name='64bit'>For amd64-multilib, installs the native 64-bit	plugin</flag>
+  <flag name='32bit'>For amd64-multilib, installs the 32-bit plugin</flag>
+  <flag name='nspluginwrapper'>For amd64-multilib, installs <pkg>www-plugins/nspluginwrapper</pkg> 
+	  to allow use in a 64-bit browser.</flag>
+</use>
+</pkgmetadata>

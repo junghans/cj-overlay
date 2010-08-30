@@ -76,7 +76,7 @@ NATIVE_DEPS="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	sys-apps/lsb-release
 	sys-libs/zlib"
 
-DEPEND="nspluginwrapper? ( www-plugins/nspluginwrapper )"
+DEPEND="amd64? ( nspluginwrapper? ( www-plugins/nspluginwrapper ) )"
 
 EMUL_DEPS=">=app-emulation/emul-linux-x86-baselibs-20100220
 	app-emulation/emul-linux-x86-gtklibs
