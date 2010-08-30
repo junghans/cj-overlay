@@ -4,14 +4,31 @@
 
 EAPI=3
 
-inherit nsplugins
+inherit multilib nsplugins
 
-GREPO="http://dl.google.com/linux/talkplugin/deb"
+if [ "${PV}" != "9999" ]; then
+	MY_URL="http://dl.google.com/linux/talkplugin/deb/pool/main/${GREPO}/${P:0:1}/${PN}"
+	DEB_PATCH="1"
+	MY_32B_PKG="${PN}_${PV}-${DEB_PATCH}_i386.deb"
+	MY_64B_PKG="${PN}_${PV}-${DEB_PATCH}_amd64.deb"
+else
+	MY_URL="http://dl.google.com/linux/direct"
+	MY_32B_PKG="${PN}_current_i386.deb"
+	MY_64B_PKG="${PN}_current_amd64.deb"
+fi
+
 DESCRIPTION="Video chat browser plug-in for Google Talk"
-SRC_URI="x86? ( $GREPO/pool/main/${P:0:1}/${PN}/${PN}_${PV}-1_i386.deb )
-	amd64? ( $GREPO/pool/main/${P:0:1}/${PN}/${PN}_${PV}-1_amd64.deb )"
+SRC_URI="x86? ( ${MY_URL}/${MY_32B_PKG} )
+	amd64? (
+		multilib? (
+			32bit? ( ${MY_URL}/${MY_32B_PKG} )
+			64bit? ( ${MY_URL}/${MY_64B_PKG} )
+		)
+		!multilib? ( ${MY_URL}/${MY_64B_PKG} )
+	)"
+
 HOMEPAGE="http://www.google.com/chat/video"
-IUSE="+system-libCg"
+IUSE="nspluginwrapper +system-libCg 32bit 64bit"
 SLOT="0"
 
 KEYWORDS="-* ~amd64 ~x86"
@@ -19,7 +36,7 @@ LICENSE="UNKNOWN"
 RESTRICT="strip mirror"
 
 #from debian control file and ldd
-RDEPEND="|| ( media-sound/pulseaudio media-libs/alsa-lib )
+NATIVE_DEPS="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	>=sys-libs/glibc-2.4
 	media-libs/fontconfig
 	media-libs/freetype:2
@@ -59,30 +76,144 @@ RDEPEND="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	sys-apps/lsb-release
 	sys-libs/zlib"
 
-INSTALL_BASE="/opt/google/talkplugin"
+DEPEND="nspluginwrapper? ( www-plugins/nspluginwrapper )"
+
+EMUL_DEPS=">=app-emulation/emul-linux-x86-baselibs-20100220
+	app-emulation/emul-linux-x86-gtklibs
+	app-emulation/emul-linux-x86-soundlibs
+	app-emulation/emul-linux-x86-xlibs"
+
+RDEPEND="x86? ( ${NATIVE_DEPS} )
+	amd64? (
+		multilib? (
+			64bit? ( ${NATIVE_DEPS} )
+			32bit? ( ${EMUL_DEPS} )
+		)
+		!multilib? ( ${NATIVE_DEPS} )
+	)"
+
+INSTALL_BASE="opt/google/talkplugin"
 
 [ "${ARCH}" = "amd64" ] && SO_SUFFIX="64" || SO_SUFFIX=""
 
-QA_TEXTRELS="opt/google/talkplugin/libnpgtpo3dautoplugin.so
-	opt/google/talkplugin/libnpgoogletalk${SO_SUFFIX}.so"
+QA_TEXTRELS="${INSTALL_BASE}/libnpgtpo3dautoplugin.so
+	${INSTALL_BASE}/libnpgoogletalk${SO_SUFFIX}.so"
+
+QA_TEXTRELS_amd64="${INSTALL_BASE}32/libnpgtpo3dautoplugin.so
+	${INSTALL_BASE}32/libnpgoogletalk.so"
+
+rm_nswrapper_plugin() {
+	#remove all wrapped plugins 
+	local i plugin
+	if use amd64 && has_version 'www-plugins/nspluginwrapper'; then
+		for i in libnpgtpo3dautoplugin.so libnpgoogletalk.so; do
+			plugin=$(nspluginwrapper -l | grep -e "^/.*$i")
+			if [[ -f ${plugin} ]]; then
+				einfo "Removing 32-bit plugin wrapper: ${plugin}"
+				nspluginwrapper -r "${FLASH_WRAPPER}"
+			fi
+		done
+	fi
+}
+
+pkg_setup() {
+	if use x86; then
+		export MY_INSTALL_TYPE="native"
+	elif use amd64; then
+		if use multilib; then
+			if use 32bit && use 64bit; then
+				export MY_INSTALL_TYPE="both"
+			elif use 64bit; then
+				export MY_INSTALL_TYPE="native"
+			elif use 32bit; then
+				export MY_INSTALL_TYPE="cross"
+			else
+				eerror "You must select at least one library USE flag (32bit or 64bit)"
+				die "No library version selected [-32bit -64bit]"
+			fi
+		else
+			export MY_INSTALL_TYPE="native"
+		fi
+	fi
+}
 
 src_unpack() {
-	unpack ${A} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
+	if [ "${MY_INSTALL_TYPE}" = "native" ]; then
+		unpack ${A} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
+	else # cross or both
+		mkdir 32bit
+		cd 32bit
+		unpack ${MY_32B_PKG} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
+		cd ..
+	fi
+
+	if [ "${MY_INSTALL_TYPE}" = "both" ]; then
+		unpack ${MY_64B_PKG} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
+	fi
 }
 
 src_install() {
-	dodoc ./usr/share/doc/google-talkplugin/changelog.Debian
+	if [ "${MY_INSTALL_TYPE}" != "cross" ]; then #native or both
+		dodoc ./usr/share/doc/google-talkplugin/changelog.Debian
 
-	cd ".${INSTALL_BASE}"
-	exeinto "${INSTALL_BASE}"
-	doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so	libnpgoogletalk"${SO_SUFFIX}".so
-	inst_plugin "${INSTALL_BASE}"/libnpgtpo3dautoplugin.so
-	inst_plugin "${INSTALL_BASE}"/libnpgoogletalk"${SO_SUFFIX}".so
+		cd "./${INSTALL_BASE}"
+		exeinto "/${INSTALL_BASE}"
+		doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so	libnpgoogletalk"${SO_SUFFIX}".so
+		inst_plugin /"${INSTALL_BASE}"/libnpgtpo3dautoplugin.so
+		inst_plugin /"${INSTALL_BASE}"/libnpgoogletalk"${SO_SUFFIX}".so
 
-	#install bundled libCg
-	if ! use system-libCg; then
-		cd lib
-		exeinto "${INSTALL_BASE}/lib"
-		doexe *.so
+		#install bundled libCg
+		if ! use system-libCg; then
+			cd lib
+			exeinto /"${INSTALL_BASE}/lib"
+			doexe *.so
+		fi
+	fi
+
+	if [ "${MY_INSTALL_TYPE}" != "native" ]; then #cross or both
+		cd 32bit
+
+		cd "./${INSTALL_BASE}"
+		exeinto "/${INSTALL_BASE}32"
+		doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so	libnpgoogletalk.so
+
+		#install bundled libCg
+		if ! use system-libCg; then
+			cd lib
+			exeinto /"${INSTALL_BASE}"32/lib
+			doexe *.so
+		fi
+	fi
+}
+
+pkg_prerm() {
+	rm_nswrapper_plugin
+}
+
+pkg_postinst() {
+	local i
+	if use amd64; then
+		if [ "${MY_INSTALL_TYPE}" = "cross" ]; then
+			if has_version 'www-plugins/nspluginwrapper'; then
+				#install 32bit plugins for 64bit browsers
+				oldabi="${ABI}"
+				ABI="x86"
+				einfo "nspluginwrapper detected: Installing plugin wrapper"
+				for i in libnpgtpo3dautoplugin.so libnpgoogletalk.so; do
+					[ -f "${ROOT}/usr/$(get_libdir)/${PLUGINS_DIR}/$i" ] || \
+						die "plugin $i not found"
+					nspluginwrapper -i "${ROOT}/usr/$(get_libdir)/${PLUGINS_DIR}/$i"
+				done
+				ABI="${oldabi}"
+			else
+				einfo "To use the 32-bit plugins in a native 64-bit firefox,"
+				einfo "you must install www-plugins/nspluginwrapper and run"
+					for i in libnpgtpo3dautoplugin.so libnpgoogletalk.so; do
+					einfo "nspluginwrapper -i '${ROOT}/usr/$(get_libdir)/${PLUGINS_DIR}/$i'"
+				done
+			fi
+		else #both or native
+			rm_nswrapper_plugin
+		fi
 	fi
 }
