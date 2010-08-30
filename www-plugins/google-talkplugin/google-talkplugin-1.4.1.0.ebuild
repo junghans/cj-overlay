@@ -7,7 +7,7 @@ EAPI=3
 inherit multilib nsplugins
 
 if [ "${PV}" != "9999" ]; then
-	MY_URL="http://dl.google.com/linux/talkplugin/deb/pool/main/${GREPO}/${P:0:1}/${PN}"
+	MY_URL="http://dl.google.com/linux/talkplugin/deb/pool/main/${P:0:1}/${PN}"
 	DEB_PATCH="1"
 	MY_32B_PKG="${PN}_${PV}-${DEB_PATCH}_i386.deb"
 	MY_64B_PKG="${PN}_${PV}-${DEB_PATCH}_amd64.deb"
