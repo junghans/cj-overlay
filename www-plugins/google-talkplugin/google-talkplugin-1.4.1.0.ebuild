@@ -110,7 +110,7 @@ rm_nswrapper_plugin() {
 			plugin=$(nspluginwrapper -l | grep -e "^/.*$i")
 			if [[ -f ${plugin} ]]; then
 				einfo "Removing 32-bit plugin wrapper: ${plugin}"
-				nspluginwrapper -r "${FLASH_WRAPPER}"
+				nspluginwrapper -r "${plugin}"
 			fi
 		done
 	fi
@@ -143,12 +143,12 @@ src_unpack() {
 	else # cross or both
 		mkdir 32bit
 		cd 32bit
-		unpack ${MY_32B_PKG} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
+		unpack "${MY_32B_PKG}" ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
 		cd ..
 	fi
 
 	if [ "${MY_INSTALL_TYPE}" = "both" ]; then
-		unpack ${MY_64B_PKG} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
+		unpack "${MY_64B_PKG}" ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
 	fi
 }
 
@@ -157,15 +157,15 @@ src_install() {
 		dodoc ./usr/share/doc/google-talkplugin/changelog.Debian
 
 		cd "./${INSTALL_BASE}"
-		exeinto "/${INSTALL_BASE}"
+		exeinto "${EROOT}${INSTALL_BASE}"
 		doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so	libnpgoogletalk"${SO_SUFFIX}".so
-		inst_plugin /"${INSTALL_BASE}"/libnpgtpo3dautoplugin.so
-		inst_plugin /"${INSTALL_BASE}"/libnpgoogletalk"${SO_SUFFIX}".so
+		inst_plugin "${EROOT}${INSTALL_BASE}"/libnpgtpo3dautoplugin.so
+		inst_plugin "${EROOT}${INSTALL_BASE}"/libnpgoogletalk"${SO_SUFFIX}".so
 
 		#install bundled libCg
 		if ! use system-libCg; then
 			cd lib
-			exeinto /"${INSTALL_BASE}/lib"
+			exeinto "${EROOT}${INSTALL_BASE}/lib"
 			doexe *.so
 		fi
 	fi
@@ -174,13 +174,13 @@ src_install() {
 		cd 32bit
 
 		cd "./${INSTALL_BASE}"
-		exeinto "/${INSTALL_BASE}32"
+		exeinto "${EROOT}${INSTALL_BASE}32"
 		doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so	libnpgoogletalk.so
 
 		#install bundled libCg
 		if ! use system-libCg; then
 			cd lib
-			exeinto /"${INSTALL_BASE}"32/lib
+			exeinto "${EROOT}${INSTALL_BASE}"32/lib
 			doexe *.so
 		fi
 	fi
@@ -199,17 +199,15 @@ pkg_postinst() {
 				oldabi="${ABI}"
 				ABI="x86"
 				einfo "nspluginwrapper detected: Installing plugin wrapper"
-				for i in libnpgtpo3dautoplugin.so libnpgoogletalk.so; do
-					[ -f "${ROOT}/usr/$(get_libdir)/${PLUGINS_DIR}/$i" ] || \
-						die "plugin $i not found"
-					nspluginwrapper -i "${ROOT}/usr/$(get_libdir)/${PLUGINS_DIR}/$i"
+				for i in "${EROOT}${INSTALL_BASE}32"/*.so; do
+					nspluginwrapper -i "${i}"
 				done
 				ABI="${oldabi}"
 			else
 				einfo "To use the 32-bit plugins in a native 64-bit firefox,"
 				einfo "you must install www-plugins/nspluginwrapper and run"
-					for i in libnpgtpo3dautoplugin.so libnpgoogletalk.so; do
-					einfo "nspluginwrapper -i '${ROOT}/usr/$(get_libdir)/${PLUGINS_DIR}/$i'"
+				for i in "${EROOT}${INSTALL_BASE}32"/*.so; do
+					einfo "nspluginwrapper -i '${i}'"
 				done
 			fi
 		else #both or native
