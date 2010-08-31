@@ -171,11 +171,16 @@ src_install() {
 	fi
 
 	if [ "${MY_INSTALL_TYPE}" != "native" ]; then #cross or both
+		oldabi="${ABI}"
+		ABI="x86"
+
 		cd 32bit
 
 		cd "./${INSTALL_BASE}"
 		exeinto "${EROOT}${INSTALL_BASE}32"
 		doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so	libnpgoogletalk.so
+		inst_plugin "${EROOT}${INSTALL_BASE}"32/libnpgtpo3dautoplugin.so
+		inst_plugin "${EROOT}${INSTALL_BASE}"32/libnpgoogletalk.so
 
 		#install bundled libCg
 		if ! use system-libCg; then
@@ -183,6 +188,7 @@ src_install() {
 			exeinto "${EROOT}${INSTALL_BASE}"32/lib
 			doexe *.so
 		fi
+		ABI="${oldabi}"
 	fi
 }
 
@@ -199,15 +205,15 @@ pkg_postinst() {
 				oldabi="${ABI}"
 				ABI="x86"
 				einfo "nspluginwrapper detected: Installing plugin wrapper"
-				for i in "${EROOT}${INSTALL_BASE}32"/*.so; do
-					nspluginwrapper -i "${i}"
+				for i in libnpgtpo3dautoplugin.so libnpgoogletalk.so; do
+					nspluginwrapper -i "${EROOT}/usr/$(get_libdir)/${PLUGINS_DIR}/${i}"
 				done
 				ABI="${oldabi}"
 			else
 				einfo "To use the 32-bit plugins in a native 64-bit firefox,"
 				einfo "you must install www-plugins/nspluginwrapper and run"
-				for i in "${EROOT}${INSTALL_BASE}32"/*.so; do
-					einfo "nspluginwrapper -i '${i}'"
+				for i in libnpgtpo3dautoplugin.so libnpgoogletalk.so; do
+					einfo "nspluginwrapper -i '${EROOT}/usr/$(get_libdir)/${PLUGINS_DIR}/${i}'"
 				done
 			fi
 		else #both or native
