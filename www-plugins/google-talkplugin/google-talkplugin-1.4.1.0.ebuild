@@ -28,7 +28,7 @@ SRC_URI="x86? ( ${MY_URL}/${MY_32B_PKG} )
 	)"
 
 HOMEPAGE="http://www.google.com/chat/video"
-IUSE="nspluginwrapper +system-libCg 32bit 64bit"
+IUSE="multilib nspluginwrapper +system-libCg 32bit 64bit"
 SLOT="0"
 
 KEYWORDS="-* ~amd64 ~x86"
