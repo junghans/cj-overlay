@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer>
+  <email>christoph.junghans@googlemail.com</email>
+</maintainer>
+<longdescription lang="en">
+  Some useful scripts, for details see README in doc dir
+</longdescription>
+</pkgmetadata>
