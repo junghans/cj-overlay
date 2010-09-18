@@ -1,0 +1,8 @@
+# ChangeLog for app-cdr/k3b
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Sep 2010; Christoph Junghans <kleiner_otti@gmx.de> k3b-2.0.0-r1.ebuild,
+  +metadata.xml:
+  added hal use flag
+

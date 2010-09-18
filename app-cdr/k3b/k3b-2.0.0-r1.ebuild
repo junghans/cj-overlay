@@ -15,7 +15,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P/_}.tar.bz2"
 
 LICENSE="GPL-2 FDL-1.2"
 SLOT="4"
-KEYWORDS="amd64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="debug dvd emovix encode ffmpeg flac hal mad lame musepack musicbrainz sndfile sox taglib vcd vorbis +wav"
 
 DEPEND=">=kde-base/libkcddb-${KDE_MINIMAL}
