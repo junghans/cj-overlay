@@ -1,14 +1,14 @@
-<?xml version="1.0" ?>
-<layman>
-	<overlay
-		type = "mercurial"
-		src  = "https://cj-overlay.googlecode.com/hg/"
-		contact = "kleiner_otti@gmx.de"
-		status  = "unofficial"
-		name = "cj-overlay">
-		<link>
-			http://cj-overlay.googlecode.com
-		</link>
-    		<description>Christoph's overlay</description>
-	</overlay>
-</layman>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="testing" status="unofficial">
+    <name>cj-overlay</name>
+    <description>Christoph's Overlay</description>
+    <homepage>http://cj-overlay.googlecode.com</homepage>
+    <owner>
+      <email>kleiner_otti@gmx.de</email>
+    </owner>
+    <source type="mercurial">https://cj-overlay.googlecode.com/hg/</source>
+    <feed>http://code.google.com/feeds/p/cj-overlay/hgchanges/basic</feed>
+  </repo>
+</repositories>
