@@ -37,46 +37,51 @@ KEYWORDS="-* ~amd64 ~x86"
 LICENSE="UNKNOWN"
 RESTRICT="strip mirror"
 
-#from debian control file and ldd
+#to get these run:
+#for i in $(ldd /opt/google/talkplugin/* |awk '{print $3}' | grep so | sort -u)
+#do 
+#  qfile -S $i
+#done | awk '{print $1}' | sort -u
+#also see debian control file
 NATIVE_DEPS="|| ( media-sound/pulseaudio media-libs/alsa-lib )
-	>=sys-libs/glibc-2.4
+	dev-libs/atk
+	dev-libs/expat
+	dev-libs/glib:2
+	dev-libs/openssl
 	media-libs/fontconfig
 	media-libs/freetype:2
-	virtual/opengl
 	media-libs/glew
-	dev-libs/glib:2
-	x11-libs/gtk+:2
-	media-libs/libpng:1.2
 	media-libs/libpng:0
-	dev-libs/openssl
+	media-libs/libpng:1.2
+	sys-apps/util-linux
+	sys-devel/gcc
+	>=sys-libs/glibc-2.4
+	sys-libs/zlib
+	virtual/opengl
+	x11-libs/cairo
+	x11-libs/gtk+:2
+	x11-libs/libICE
+	x11-libs/libSM
 	x11-libs/libX11
-	x11-libs/libXfixes
-	x11-libs/libXt
-	x11-libs/libxcb
 	x11-libs/libXau
+	x11-libs/libXcomposite
+	x11-libs/libXcursor
+	x11-libs/libXdamage
 	x11-libs/libXdmcp
 	x11-libs/libXext
-	x11-libs/libXxf86vm
-	x11-libs/libXdamage
-	x11-libs/libxcb
-	x11-libs/libdrm
-	x11-libs/libSM
-	x11-libs/libICE
-	x11-libs/pango
+	x11-libs/libXfixes
 	x11-libs/libXi
-	dev-libs/atk
-	x11-libs/cairo
 	x11-libs/libXrandr
-	x11-libs/libXcursor
-	x11-libs/libXcomposite
 	x11-libs/libXrender
-	dev-libs/expat
-	sys-apps/util-linux
+	x11-libs/libXt
+	x11-libs/libXxf86vm
+	x11-libs/libdrm
+	x11-libs/libxcb
+	x11-libs/pango
 	x11-libs/pixman
 	x11-libs/xcb-util
 	system-libCg? ( media-gfx/nvidia-cg-toolkit )
-	sys-apps/lsb-release
-	sys-libs/zlib"
+	sys-apps/lsb-release"
 
 DEPEND="amd64? ( nspluginwrapper? ( www-plugins/nspluginwrapper ) )"
 

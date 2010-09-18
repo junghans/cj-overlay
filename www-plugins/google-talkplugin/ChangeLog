@@ -3,6 +3,10 @@
 # $Header: $
 
   18 Sep 2010; Christoph Junghans <kleiner_otti@gmx.de>
+  google-talkplugin-1.5.1.0.ebuild:
+  Updated deps
+
+  18 Sep 2010; Christoph Junghans <kleiner_otti@gmx.de>
   -google-talkplugin-1.4.1.0.ebuild, +google-talkplugin-1.5.1.0.ebuild,
   google-talkplugin-9999.ebuild:
   Version bump
