@@ -38,14 +38,12 @@ LICENSE="UNKNOWN"
 RESTRICT="strip mirror"
 
 #to get these run:
-#for i in $(ldd /opt/google/talkplugin/* |awk '{print $3}' | grep so | sort -u)
-#do 
-#  qfile -S $i
-#done | awk '{print $1}' | sort -u
+#for i in $(scanelf -n /opt/google/talkplugin/* | awk '/^ET/{gsub(/,/,"\n",$2);print $2}' | sort -u)
+#do
+#  find /lib /usr/lib -maxdepth 1 -name $i -exec qfile -S {} \;
+#done |  awk '{print $1}' | sort -u
 #also see debian control file
 NATIVE_DEPS="|| ( media-sound/pulseaudio media-libs/alsa-lib )
-	dev-libs/atk
-	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/openssl
 	media-libs/fontconfig
@@ -53,33 +51,11 @@ NATIVE_DEPS="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	media-libs/glew
 	media-libs/libpng:0
 	media-libs/libpng:1.2
-	sys-apps/util-linux
-	sys-devel/gcc
 	>=sys-libs/glibc-2.4
-	sys-libs/zlib
-	virtual/opengl
-	x11-libs/cairo
 	x11-libs/gtk+:2
-	x11-libs/libICE
-	x11-libs/libSM
 	x11-libs/libX11
-	x11-libs/libXau
-	x11-libs/libXcomposite
-	x11-libs/libXcursor
-	x11-libs/libXdamage
-	x11-libs/libXdmcp
-	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libXi
-	x11-libs/libXrandr
-	x11-libs/libXrender
 	x11-libs/libXt
-	x11-libs/libXxf86vm
-	x11-libs/libdrm
-	x11-libs/libxcb
-	x11-libs/pango
-	x11-libs/pixman
-	x11-libs/xcb-util
 	system-libCg? ( media-gfx/nvidia-cg-toolkit )
 	sys-apps/lsb-release"
 
