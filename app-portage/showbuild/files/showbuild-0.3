@@ -1,0 +1,25 @@
+#!/bin/bash
+
+log="@GENTOO_PORTAGE_EPREFIX@/var/tmp/portage/*/*/temp/build.log"
+cmd="tailf"
+
+die() { echo -e "$*" >&2; exit 1; }
+
+if [ "$(echo $log)" = "$log" ]; then
+  echo "No running build found"
+  exit 0
+elif [ -z "$1" ]; then
+  echo "Running builds - use '${0##*/} NUMBER' to select"
+  ls -1 | sed "s@${log%%\**}\([^/]*\)/\([^/]*\)${log##*\*}@\2@" | cat -n
+elif [ -n "${1//[0-9]}" ]; then
+  die "Argument of ${0##*/} should be a number"
+else
+  file="$(ls -1 $log | sed -n "${1}p")"
+  if [ -z "${file}" ]; then
+    die "Build number $1 not found" 
+  elif [ ! -f "${file}" ]; then
+    die "Build number $1 was gone in the meanwhile"
+  else
+    $cmd $file
+  fi
+fi
