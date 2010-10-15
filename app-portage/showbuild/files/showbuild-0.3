@@ -10,7 +10,7 @@ if [ "$(echo $log)" = "$log" ]; then
   exit 0
 elif [ -z "$1" ]; then
   echo "Running builds - use '${0##*/} NUMBER' to select"
-  ls -1 $log | sed "s@${log%%\**}\([^/]*\)/\([^/]*\)${log##*\*}@\2@" | cat -n
+  ls -1 $log | sed "s@${log%%\**}\([^/]*\)/\([^/]*\)${log##*\*}@\2\t(\1)@" | cat -n
 elif [ -n "${1//[0-9]}" ]; then
   die "Argument of ${0##*/} should be a number"
 else
