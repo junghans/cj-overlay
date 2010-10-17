@@ -1,3 +1,6 @@
+http://bugs.gentoo.org/show_bug.cgi?id=339032
+http://bugs.kde.org/show_bug.cgi?id=253388
+
 diff -Naur k3b-2.0.0-orig/CMakeLists.txt k3b-2.0.0/CMakeLists.txt
 --- k3b-2.0.0-orig/CMakeLists.txt	2010-08-14 16:57:49.000000000 +0200
 +++ k3b-2.0.0/CMakeLists.txt	2010-08-14 17:01:49.000000000 +0200
