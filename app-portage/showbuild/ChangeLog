@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Oct 2010; Christoph Junghans <kleiner_otti@gmx.de>
+  -files/showbuild-0.2, -showbuild-0.2.ebuild, showbuild-0.3.ebuild:
+  version 0.3 is ready to use
+
   15 Oct 2010; Christoph Junghans <kleiner_otti@gmx.de> files/showbuild-0.3:
   also show category
 
