@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Oct 2010; Christoph Junghans <kleiner_otti@gmx.de>
+  google-talkplugin-1.5.1.0.ebuild, metadata.xml:
+  added rpm useflag
+
   18 Sep 2010; Christoph Junghans <kleiner_otti@gmx.de>
   google-talkplugin-1.5.1.0.ebuild:
   Updated deps

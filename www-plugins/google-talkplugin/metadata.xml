@@ -5,6 +5,7 @@
   <email>christoph.junghans@googlemail.com</email>
 </maintainer>
 <use>
+  <flag name='rpm'>Use Google's rpm package instead the deb package</flag>
   <flag name='system-libCg'>Use system libCg instead of bundled one</flag>
   <flag name='64bit'>For amd64-multilib, installs the native 64-bit	plugin</flag>
   <flag name='32bit'>For amd64-multilib, installs the 32-bit plugin</flag>
