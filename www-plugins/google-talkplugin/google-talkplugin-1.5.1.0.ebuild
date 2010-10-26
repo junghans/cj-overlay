@@ -8,46 +8,42 @@ inherit multilib nsplugins rpm
 
 if [ "${PV}" != "9999" ]; then
 	#http://dl.google.com/linux/talkplugin/rpm/stable/x86_64/repodata/other.xml.gz
-	RMY_URL64="http://dl.google.com/linux/talkplugin/rpm/stable/x86_64"
-	RMY_URL32="http://dl.google.com/linux/talkplugin/rpm/stable/i386"
+	RPM_URL="http://dl.google.com/linux/talkplugin/rpm/stable/i386"
 	RPM_PATCH="1"
-	RMY_32B_PKG="${P}-${RPM_PATCH}.i386.rpm"
-	RMY_64B_PKG="${P}-${RPM_PATCH}.x86_64.rpm"
+	RPM_32B_PKG="${P}-${RPM_PATCH}.i386.rpm"
+	RPM_64B_PKG="${P}-${RPM_PATCH}.x86_64.rpm"
 	#http://dl.google.com/linux/talkplugin/deb/dists/stable/main/binary-i386/Packages
-	MY_URL64="http://dl.google.com/linux/talkplugin/deb/pool/main/${P:0:1}/${PN}"
-	MY_URL32="http://dl.google.com/linux/talkplugin/deb/pool/main/${P:0:1}/${PN}"
+	DEB_URL="http://dl.google.com/linux/talkplugin/deb/pool/main/${P:0:1}/${PN}"
 	DEB_PATCH="1"
-	DMY_32B_PKG="${PN}_${PV}-${DEB_PATCH}_i386.deb"
-	DMY_64B_PKG="${PN}_${PV}-${DEB_PATCH}_amd64.deb"
+	DEB_32B_PKG="${PN}_${PV}-${DEB_PATCH}_i386.deb"
+	DEB_64B_PKG="${PN}_${PV}-${DEB_PATCH}_amd64.deb"
 else
-	DMY_URL64="http://dl.google.com/linux/direct"
-	DMY_URL32="http://dl.google.com/linux/direct"
-	RMY_URL64="http://dl.google.com/linux/direct"
-	RMY_URL32="http://dl.google.com/linux/direct"
-	RMY_32B_PKG="${PN}_current_i386.rpm"
-	RMY_64B_PKG="${PN}_current_x86_64.rpm"
-	DMY_32B_PKG="${PN}_current_i386.deb"
-	DMY_64B_PKG="${PN}_current_amd64.deb"
+	DEB_URL="http://dl.google.com/linux/direct"
+	RPM_URL="http://dl.google.com/linux/direct"
+	RPM_32B_PKG="${PN}_current_i386.rpm"
+	RPM_64B_PKG="${PN}_current_x86_64.rpm"
+	DEB_32B_PKG="${PN}_current_i386.deb"
+	DEB_64B_PKG="${PN}_current_amd64.deb"
 fi
 
 DESCRIPTION="Video chat browser plug-in for Google Talk"
 SRC_URI="rpm? (
-	x86? ( ${RMY_URL32}/${RMY_32B_PKG} )
+	x86? ( ${RPM_URL}/${RPM_32B_PKG} )
 	amd64? (
 		multilib? (
-			32bit? ( ${RMY_URL32}/${RMY_32B_PKG} )
-			64bit? ( ${RMY_URL64}/${RMY_64B_PKG} )
+			32bit? ( ${RPM_URL}/${RPM_32B_PKG} )
+			64bit? ( ${RPM_URL/i386/x86_64}/${RPM_64B_PKG} )
 		)
-		!multilib? ( ${RMY_URL64}/${RMY_64B_PKG} )
+		!multilib? ( ${RPM_URL/i386/x86_64}/${RPM_64B_PKG} )
 	)
 ) !rpm? (
-	x86? ( ${DMY_URL32}/${DMY_32B_PKG} )
+	x86? ( ${DEB_URL}/${DEB_32B_PKG} )
 	amd64? (
 		multilib? (
-			32bit? ( ${DMY_URL32}/${DMY_32B_PKG} )
-			64bit? ( ${DMY_URL64}/${DMY_64B_PKG} )
+			32bit? ( ${DEB_URL}/${DEB_32B_PKG} )
+			64bit? ( ${DEB_URL}/${DEB_64B_PKG} )
 		)
-		!multilib? ( ${DMY_URL64}/${DMY_64B_PKG} )
+		!multilib? ( ${DEB_URL}/${DEB_64B_PKG} )
 	)
 )"
 
@@ -156,18 +152,18 @@ src_unpack() {
 		mkdir 32bit
 		cd 32bit
 		if use rpm; then
-			rpm_unpack "${RMY_32B_PKG}"
+			rpm_unpack "${RPM_32B_PKG}"
 		else
-			unpack "${DMY_32B_PKG}" ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
+			unpack "${DEB_32B_PKG}" ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
 		fi
 		cd ..
 	fi
 
 	if [ "${MY_INSTALL_TYPE}" = "both" ]; then
 		if use rpm; then
-			rpm_unpack "${RMY_64B_PKG}"
+			rpm_unpack "${RPM_64B_PKG}"
 		else
-			unpack "${DMY_64B_PKG}" ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
+			unpack "${DEB_64B_PKG}" ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
 		fi
 	fi
 }
