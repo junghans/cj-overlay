@@ -4,3 +4,4 @@
 =www-plugins/google-talkplugin-9999
 =sci-misc/evergreens-9999
 =sci-visualization/gnuplotutils-9999
+=dev-vcs/git-annex-9999
