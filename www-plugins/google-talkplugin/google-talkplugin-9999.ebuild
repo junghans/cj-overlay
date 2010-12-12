@@ -1,1 +1,1 @@
-google-talkplugin-1.5.1.0.ebuild
+google-talkplugin-1.7.0.0.ebuild
