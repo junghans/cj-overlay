@@ -3,6 +3,10 @@
 # $Header: $
 
   15 Dec 2010; Christoph Junghans <kleiner_otti@gmx.de>
+  -google-talkplugin-1.7.0.0.ebuild, +google-talkplugin-1.7.1.0.ebuild:
+  version bump
+
+  15 Dec 2010; Christoph Junghans <kleiner_otti@gmx.de>
   -google-talkplugin-9999.ebuild:
   useless: *_current is always the same as stable version
 
