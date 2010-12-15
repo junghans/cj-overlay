@@ -21,6 +21,7 @@ IUSE=""
 DEPEND="dev-vcs/git
 	dev-haskell/missingh
 	dev-haskell/utf8-string
+	dev-haskell/pcre-light
 	dev-libs/ossp-uuid
 	sys-apps/findutils"
 
