@@ -1,1 +1,0 @@
-google-talkplugin-1.7.0.0.ebuild
