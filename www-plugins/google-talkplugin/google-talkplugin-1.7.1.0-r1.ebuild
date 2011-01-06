@@ -24,7 +24,7 @@ HOMEPAGE="http://www.google.com/chat/video"
 IUSE="+system-libCg"
 SLOT="0"
 
-KEYWORDS="-* ~x86"
+KEYWORDS="-* ~amd64 ~x86"
 LICENSE="UNKNOWN"
 RESTRICT="strip mirror"
 
@@ -45,8 +45,7 @@ NATIVE_DEPS="|| ( media-sound/pulseaudio media-libs/alsa-lib )
 	x11-libs/libXfixes
 	x11-libs/libXt
 	system-libCg? ( media-gfx/nvidia-cg-toolkit )
-	sys-apps/lsb-release
-	!www-plugins/kpartsplugin"
+	sys-apps/lsb-release"
 
 DEPEND=""
 
