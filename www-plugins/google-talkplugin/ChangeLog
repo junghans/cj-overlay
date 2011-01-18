@@ -2,6 +2,10 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Jan 2011; Christoph Junghans <kleiner_otti@gmx.de>
+  -google-talkplugin-1.7.1.0-r1.ebuild, +google-talkplugin-1.8.0.0.ebuild:
+  Version bump
+
   06 Jan 2011; Christoph Junghans <kleiner_otti@gmx.de>
   google-talkplugin-1.7.1.0-r1.ebuild:
   added back amd64 keyword (bug #333579#c69)
