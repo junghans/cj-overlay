@@ -1,0 +1,8 @@
+# ChangeLog for kde-misc/kio-upnp-ms
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Jan 2011; Christoph Junghans <kleiner_otti@gmx.de>
+  +kio-upnp-ms-9999.ebuild, +files/FindHUpnp.cmake, +metadata.xml:
+  initial commit (bug #351916)
+
