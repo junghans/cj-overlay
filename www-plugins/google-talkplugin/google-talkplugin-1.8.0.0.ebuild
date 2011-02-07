@@ -25,7 +25,7 @@ IUSE="+system-libCg"
 SLOT="0"
 
 KEYWORDS="-* ~amd64 ~x86"
-LICENSE="UNKNOWN"
+LICENSE="google-talkplugin"
 RESTRICT="strip mirror"
 
 #to get these run:
