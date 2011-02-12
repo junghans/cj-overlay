@@ -62,26 +62,28 @@ INSTALL_BASE="opt/google/talkplugin"
 
 [ "${ARCH}" = "amd64" ] && SO_SUFFIX="64" || SO_SUFFIX=""
 
+QA_EXECSTACK="${INSTALL_BASE}/GoogleTalkPlugin"
+
 QA_TEXTRELS="${INSTALL_BASE}/libnpgtpo3dautoplugin.so
 	${INSTALL_BASE}/libnpgoogletalk${SO_SUFFIX}.so"
 
 src_unpack() {
-	unpack ${A} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz
+	unpack ${A} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz || die
 }
 
 src_install() {
 	dodoc ./usr/share/doc/google-talkplugin/changelog.Debian
 
-	cd "./${INSTALL_BASE}"
-	exeinto "${EROOT}${INSTALL_BASE}"
-	doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so	libnpgoogletalk"${SO_SUFFIX}".so
-	inst_plugin "${EROOT}${INSTALL_BASE}"/libnpgtpo3dautoplugin.so
-	inst_plugin "${EROOT}${INSTALL_BASE}"/libnpgoogletalk"${SO_SUFFIX}".so
+	cd "./${INSTALL_BASE}" || die
+	exeinto "${EROOT}${INSTALL_BASE}" || die
+	doexe GoogleTalkPlugin libnpgtpo3dautoplugin.so	libnpgoogletalk"${SO_SUFFIX}".so || die
+	inst_plugin "${EROOT}${INSTALL_BASE}"/libnpgtpo3dautoplugin.so || die
+	inst_plugin "${EROOT}${INSTALL_BASE}"/libnpgoogletalk"${SO_SUFFIX}".so || die
 
 	#install bundled libCg
 	if ! use system-libCg; then
-		cd lib
-		exeinto "${EROOT}${INSTALL_BASE}/lib"
-		doexe *.so
+		cd lib || die
+		exeinto "${EROOT}${INSTALL_BASE}/lib" || die
+		doexe *.so || die
 	fi
 }
