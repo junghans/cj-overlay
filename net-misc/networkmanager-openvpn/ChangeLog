@@ -1,6 +1,14 @@
 # ChangeLog for net-misc/networkmanager-openvpn
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*networkmanager-openvpn-0.8-r2 (13 Feb 2011)
+
+  13 Feb 2011; Christoph Junghans <ottxor@gentoo.org>
+  -networkmanager-openvpn-0.8-r1.ebuild, +networkmanager-openvpn-0.8-r2.ebuild,
+  +files/networkmanager-openvpn-dont-check-secrets-for-tls-connection-type.patc
+  h:
+  attempt to fix bug #317085
 
   18 Sep 2010; Christoph Junghans <kleiner_otti@gmx.de>
   networkmanager-openvpn-0.8-r1.ebuild, +metadata.xml:

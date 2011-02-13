@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -38,6 +38,10 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 
 # FAIL: (tls-import-data) unexpected 'ca' secret value
 RESTRICT="test"
+
+src_prepare() {
+	epatch "${FILESDIR}/${PN}-dont-check-secrets-for-tls-connection-type.patch"
+}
 
 src_configure() {
 	ECONF="--disable-more-warnings
