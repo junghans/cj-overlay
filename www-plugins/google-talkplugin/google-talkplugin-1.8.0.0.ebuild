@@ -67,6 +67,13 @@ QA_EXECSTACK="${INSTALL_BASE}/GoogleTalkPlugin"
 QA_TEXTRELS="${INSTALL_BASE}/libnpgtpo3dautoplugin.so
 	${INSTALL_BASE}/libnpgoogletalk${SO_SUFFIX}.so"
 
+# nofetch means upstream bumped and thus needs version bump
+pkg_nofetch() {
+	einfo "This version is no longer available from Google."
+	einfo "Note that Gentoo cannot mirror the distfiles due to license reasons, so we have to follow the bump."
+	einfo "Please file a version bump bug on http://bugs.gentoo.org (search	existing bugs for ${PN} first!)."
+}
+
 src_unpack() {
 	unpack ${A} ./data.tar.gz ./usr/share/doc/google-talkplugin/changelog.Debian.gz || die
 }
