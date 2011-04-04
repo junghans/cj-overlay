@@ -1,10 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="3"
 
-inherit autotools mercurial
+inherit cmake-utils mercurial
 
 DESCRIPTION="Some useful scripts for gnuplot"
 HOMEPAGE="http://gnuplotutils.googlecode.com"
@@ -29,24 +29,3 @@ RDEPEND="dev-lang/perl
 EHG_REPO_URI="https://gnuplotutils.googlecode.com/hg/"
 
 S="${WORKDIR}/hg"
-
-src_prepare() {
-	eautoreconf || die "eautoreconf failed"
-}
-
-src_configure() {
-	econf || die "econf failed"
-}
-
-src_compile() {
-	emake || die "emake failed"
-}
-
-src_install() {
-	emake install DESTDIR="${D}" || die "emake install failed"
-	dodoc TODO
-	if use examples; then
-		exeinto /usr/share/doc/${PF}/examples
-		doexe examples/demo.sh
-	fi
-}
