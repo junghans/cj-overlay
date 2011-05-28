@@ -3,5 +3,3 @@
 # mask live ebuild
 =sci-misc/evergreens-9999
 =sci-visualization/gnuplotutils-9999
-=dev-vcs/git-annex-9999
-=kde-misc/kio-upnp-ms-9999
