@@ -1,6 +1,10 @@
 # ChangeLog for app-portage/showbuild
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  28 May 2011; Christoph Junghans <ottxor@gentoo.org> -files/showbuild-0.3,
+  -showbuild-0.3.ebuild:
+  removed old
 
   17 Oct 2010; Christoph Junghans <kleiner_otti@gmx.de>
   -files/showbuild-0.2, -showbuild-0.2.ebuild, showbuild-0.3.ebuild:
