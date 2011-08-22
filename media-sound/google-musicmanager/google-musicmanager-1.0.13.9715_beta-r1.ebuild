@@ -16,7 +16,7 @@ HOMEPAGE="http://music.google.com"
 SRC_URI="x86? ( ${MY_URL}/${MY_PKG} )
 	amd64? ( ${MY_URL}/${MY_PKG/i386/amd64} )"
 
-LICENSE="google-talkplugin Apache-2.0 MIT LGPL-2.1 gSOAP BSD MPL-1.1 openssl ZLIB"
+LICENSE="google-talkplugin Apache-2.0 MIT LGPL-2.1 gSOAP BSD FDL-1.2 MPL-1.1 openssl ZLIB as-is"
 SLOT="0"
 KEYWORDS="-* ~x86"
 IUSE="log"
@@ -43,7 +43,8 @@ RDEPEND="
 	log? ( dev-libs/log4cxx )
 	"
 
-DEPEND="app-arch/xz-utils"
+DEPEND="app-arch/xz-utils
+	app-admin/chrpath"
 
 INSTALL_BASE="opt/google/musicmanager"
 
@@ -66,6 +67,7 @@ src_install() {
 	doins config.xml product_logo*
 
 	exeinto "/${INSTALL_BASE}"
+	chrpath -d MusicManager || die
 	doexe MusicManager google-musicmanager minidump_upload
 	#unbundle this
 	doexe libaacdec.so libaudioenc.so.0 libmpgdec.so.0 libid3tag.so

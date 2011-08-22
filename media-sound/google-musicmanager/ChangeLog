@@ -2,6 +2,13 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*google-musicmanager-1.0.13.9715_beta-r1 (22 Aug 2011)
+
+  22 Aug 2011; Christoph Junghans <ottxor@gentoo.org>
+  -google-musicmanager-1.0.13.9715_beta.ebuild,
+  +google-musicmanager-1.0.13.9715_beta-r1.ebuild:
+  fixed license and rpath
+
 *google-musicmanager-1.0.13.9715_beta (20 Aug 2011)
 
   20 Aug 2011; Christoph Junghans <ottxor@gentoo.org>
