@@ -18,7 +18,7 @@ SRC_URI="x86? ( ${MY_URL}/${MY_PKG} )
 
 LICENSE="google-talkplugin Apache-2.0 MIT LGPL-2.1 gSOAP BSD FDL-1.2 MPL-1.1 openssl ZLIB as-is"
 SLOT="0"
-KEYWORDS="-* ~x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="log"
 
 RESTRICT="strip mirror"
