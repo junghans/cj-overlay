@@ -69,7 +69,7 @@ src_install() {
 	exeinto "/${INSTALL_BASE}"
 	chrpath -d MusicManager || die
 	doexe MusicManager google-musicmanager minidump_upload
-	#unbundle this
+	#TODO unbundle this
 	doexe libaacdec.so libaudioenc.so.0 libmpgdec.so.0 libid3tag.so
 
 	dosym /"${INSTALL_BASE}"/google-musicmanager /opt/bin/
