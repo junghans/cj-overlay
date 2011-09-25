@@ -50,6 +50,8 @@ INSTALL_BASE="opt/google/musicmanager"
 
 QA_TEXTRELS="${INSTALL_BASE}/libmpgdec.so.0"
 
+QA_DT_HASH="${INSTALL_BASE}/.*"
+
 S="${WORKDIR}/${INSTALL_BASE}"
 
 pkg_nofetch() {
