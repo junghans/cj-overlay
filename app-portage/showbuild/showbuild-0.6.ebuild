@@ -20,6 +20,8 @@ RDEPEND="
 	sys-apps/util-linux
 	app-shells/bash"
 
+S="${T}"
+
 src_prepare() {
 	cp "${FILESDIR}/showbuild-${PV}" "${T}"/showbuild || die
 	eprefixify "${T}"/showbuild
