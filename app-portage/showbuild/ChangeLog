@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Dec 2011; Christoph Junghans <ottxor@gentoo.org> showbuild-0.6.ebuild:
+  added support for prefix
+
 *showbuild-0.6 (05 Dec 2011)
 
   05 Dec 2011; Christoph Junghans <ottxor@gentoo.org> +files/showbuild-0.6,
