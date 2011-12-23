@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=4
 
 inherit mercurial
 
@@ -12,22 +12,23 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~x86-macos"
 IUSE="examples tk"
 
 DEPEND=""
-RDEPEND="dev-lang/perl
-		sys-apps/gawk
-		sys-apps/sed
-		app-shells/bash
-		app-text/wdiff
-		app-text/a2ps
-		app-editors/vim
-		tk? ( dev-util/tkdiff )"
+RDEPEND="
+	dev-lang/perl
+	sys-apps/gawk
+	sys-apps/sed
+	app-shells/bash
+	app-text/wdiff
+	app-text/a2ps
+	app-editors/vim
+	tk? ( dev-util/tkdiff )"
 
 EHG_REPO_URI="https://evergreens.cj-overlay.googlecode.com/hg/"
 
-S="${WORKDIR}/hg"
+S="${WORKDIR}/${EHG_REPO_URI##*/}"
 
 src_install () {
 	dobin fcat findgrep guard hgrep loggrep sshalias vimless vimmanless
