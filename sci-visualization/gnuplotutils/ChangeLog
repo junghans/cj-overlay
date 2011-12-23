@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Dec 2011; Christoph Junghans <ottxor@gentoo.org> gnuplotutils-9999.ebuild:
+  added support for prefix
+
   04 Apr 2011; Christoph Junghans <ottxor@gentoo.org> gnuplotutils-9999.ebuild:
   switched to cmake
 
