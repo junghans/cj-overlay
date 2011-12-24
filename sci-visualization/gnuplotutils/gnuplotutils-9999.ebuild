@@ -17,13 +17,11 @@ IUSE="examples"
 
 DEPEND=""
 RDEPEND="dev-lang/perl
-		sys-apps/gawk
 		sys-apps/sed
 		sci-visualization/gnuplot
 		virtual/latex-base
 		app-text/txt2tags
 		app-text/ghostscript-gpl
-		sys-process/procps
 		sys-apps/coreutils"
 
 EHG_REPO_URI="https://gnuplotutils.googlecode.com/hg/"
