@@ -1,0 +1,22 @@
+dev-vcs/mercurial
+dev-lang/perl sys-apps/gawk sys-apps/sed app-shells/bash app-text/wdiff app-text/a2ps app-editors/vim tk? ( dev-util/tkdiff )
+0
+
+
+http://code.google.com/p/cj-overlay/source/list?repo=evergreens
+GPL-2
+Christoph's useful scripts
+~amd64 ~x86 ~x86-macos
+eutils mercurial multilib portability toolchain-funcs user
+examples tk
+
+
+
+4
+
+install unpack
+
+
+
+
+
