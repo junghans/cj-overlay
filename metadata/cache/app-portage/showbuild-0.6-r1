@@ -1,5 +1,5 @@
 
-prefix? ( sys-apps/coreutils ) !prefix? ( sys-apps/util-linux ) app-shells/bash
+prefix? ( sys-apps/tailf ) !prefix? ( sys-apps/util-linux ) app-shells/bash
 0
 
 
