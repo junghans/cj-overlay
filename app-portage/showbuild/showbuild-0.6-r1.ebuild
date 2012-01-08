@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,7 +17,7 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="
-	prefix? ( sys-apps/coreutils )
+	prefix? ( sys-apps/tailf )
 	!prefix? ( sys-apps/util-linux )
 	app-shells/bash"
 
@@ -26,9 +26,6 @@ S="${T}"
 src_prepare() {
 	cp "${FILESDIR}/showbuild-${PV}" "${T}"/showbuild || die
 	eprefixify "${T}"/showbuild
-	if use prefix; then
-		sed -i 's/tailf/tail -f/' "${T}"/showbuild || die
-	fi
 }
 
 src_install () {
