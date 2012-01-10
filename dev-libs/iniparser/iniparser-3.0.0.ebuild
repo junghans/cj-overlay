@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit eutils multilib
+inherit autotools-utils
 
 DESCRIPTION="A free stand-alone ini file parsing library."
 HOMEPAGE="http://ndevilla.free.fr/iniparser/"
@@ -27,28 +27,13 @@ S="${WORKDIR}/${PN}"
 src_prepare() {
 	epatch \
 		"${FILESDIR}/${PN}-3.0b-cpp.patch" \
-		"${FILESDIR}/${PN}-3.0b-makefile.patch"
+		"${FILESDIR}/${PN}-3.0-autotools.patch"
 
-	sed -i \
-		-e "s|/usr/lib|${EPREFIX}/usr/$(get_libdir)|g" \
-		Makefile || die "sed failed"
-}
-
-src_compile() {
-	local targets="libiniparser.so"
-	use static-libs && targets="${targets} libiniparser.a"
-
-	emake ${targets}
+	eautoreconf
 }
 
 src_install() {
-	dolib libiniparser.so.0
-	dosym libiniparser.so.0 /usr/$(get_libdir)/libiniparser.so
-
-	use static-libs && dolib libiniparser.a
-
-	insinto /usr/include
-	doins src/*.h
+	autotools-utils_src_install
 
 	dodoc AUTHORS README
 
