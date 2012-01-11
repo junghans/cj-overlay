@@ -21,7 +21,8 @@ KEYWORDS="~x86-macos"
 IUSE=""
 
 DEPEND=""
-RDEPEND="!prefix? ( !sys-apps/util-linux )"
+RDEPEND="!prefix? ( !sys-apps/util-linux )
+	prefix? ( !<sys-apps/util-linux-2.18 )"
 
 src_compile() {
 	einfo $(tc-getCC) ${CFLAGS} ${LDFLAGS} -I../include -o ${PN} ${PN}.c
