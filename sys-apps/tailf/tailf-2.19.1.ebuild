@@ -17,7 +17,7 @@ SRC_URI="mirror://kernel/linux/utils/util-linux/v${PV:0:4}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86-macos"
+KEYWORDS="~amd64-linux ~x86-macos"
 IUSE=""
 
 DEPEND=""
