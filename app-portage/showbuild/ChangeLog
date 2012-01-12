@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Jan 2012; Christoph Junghans <ottxor@gentoo.org> showbuild-0.6-r1.ebuild:
+  added ~amd64-linux + fixed deps
+
 *showbuild-0.6-r1 (08 Jan 2012)
 
   08 Jan 2012; Christoph Junghans <ottxor@gentoo.org> -showbuild-0.6.ebuild,
