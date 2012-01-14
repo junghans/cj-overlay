@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Jan 2012; Christoph Junghans <ottxor@gentoo.org> -files/showbuild-0.5,
+  -showbuild-0.5.ebuild:
+  remove old
+
   14 Jan 2012; Christoph Junghans <ottxor@gentoo.org> showbuild-0.6-r1.ebuild:
   stablize amd64 & x86
 
