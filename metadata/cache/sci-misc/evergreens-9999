@@ -7,7 +7,7 @@ http://code.google.com/p/cj-overlay/source/list?repo=evergreens
 GPL-2
 Christoph's useful scripts
 ~amd64 ~x86 ~x86-macos
-eutils mercurial multilib portability toolchain-funcs user
+eutils mercurial multilib toolchain-funcs user
 examples tk
 
 

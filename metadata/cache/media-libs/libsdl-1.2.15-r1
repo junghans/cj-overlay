@@ -7,7 +7,7 @@ http://www.libsdl.org/
 LGPL-2.1
 Simple Direct Media Layer
 ~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd
-eutils flag-o-matic libtool multilib portability toolchain-funcs user
+eutils flag-o-matic libtool multilib toolchain-funcs user
 oss alsa alsa-shared nas X dga xv xinerama fbcon directfb ggi svga tslib aalib opengl libcaca +audio +video +joystick custom-cflags pulseaudio pulseaudio-shared ps3 static-libs
 
 
