@@ -1,0 +1,6 @@
+*eselect-awk-0.1 (11 May 2012)
+
+  11 May 2012; Christoph Junghans <ottxor@gentoo.org> +eselect-awk-0.1.ebuild,
+  +files/awk.eselect-0.1, +metadata.xml:
+  initial commit
+
