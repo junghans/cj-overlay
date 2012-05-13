@@ -1,0 +1,22 @@
+
+|| ( sys-apps/gawk sys-apps/mawk sys-apps/nawk sys-apps/busybox )
+0
+
+
+
+
+Virtual for awk implementation
+~amd64 ~x86
+
+
+
+
+
+
+
+-
+
+
+
+
+
