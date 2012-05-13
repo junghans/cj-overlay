@@ -1,0 +1,6 @@
+*awk-0 (13 May 2012)
+
+  13 May 2012; Christoph Junghans <ottxor@gentoo.org> +awk-0.ebuild,
+  +metadata.xml:
+  initial commit
+
