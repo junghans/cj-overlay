@@ -1,6 +1,0 @@
-*ccache-icc-0.1 (25 May 2012)
-
-  25 May 2012; Christoph Junghans <ottxor@gentoo.org> +ccache-icc-0.1.ebuild,
-  +metadata.xml:
-  initial commit
-
