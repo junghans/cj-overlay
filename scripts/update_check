@@ -1,0 +1,27 @@
+#! /bin/bash -e
+
+nl="
+"
+
+urllist="$1"
+urllist="${urllist:=$HOME/files/urllist}"
+
+die() {
+  echo "$*" >&2
+  exit 1
+}
+
+checklist() {
+  for i in $(<$urllist); do
+    url=$(echo "$i" | cut -d " " -f 1)
+    sum="$(wget -q $url -O - | md5sum | cut -d " " -f 1)"
+    oldsum="$(echo "$i" | cut -d " " -f 2)"
+    [[ $sum = $oldsum ]] || echo "$url has changed (old ${oldsum},new ${sum})"
+  done
+}
+
+[[ -f $urllist ]] || die "Could not find $urllist, add list as an argument"
+
+IFS="$nl"
+msg="$(checklist)"
+[[ -n $msg ]] && echo "$msg"
