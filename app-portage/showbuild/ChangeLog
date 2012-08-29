@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Aug 2012; Christoph Junghans <ottxor@gentoo.org> showbuild-0.6-r1.ebuild:
+  added ~x86-linux
+
   14 Jan 2012; Christoph Junghans <ottxor@gentoo.org> -files/showbuild-0.5,
   -showbuild-0.5.ebuild:
   remove old
@@ -46,4 +49,3 @@
   -files/showbuild-0.1, -showbuild-0.1.ebuild, showbuild-0.2.ebuild,
   +metadata.xml:
   Removed old
-
