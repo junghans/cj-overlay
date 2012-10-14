@@ -1,0 +1,5 @@
+*eselect-timezone-0.1 (14 Oct 2012)
+
+  14 Oct 2012; Christoph Junghans <ottxor@gentoo.org>
+  +eselect-timezone-0.1.ebuild, +files/timezone.eselect-0.1, +metadata.xml:
+  initial commit
