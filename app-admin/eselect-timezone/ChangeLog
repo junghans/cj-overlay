@@ -1,3 +1,7 @@
+  02 Nov 2012; Christoph Junghans <ottxor@gentoo.org>
+  -files/timezone.eselect-0.1, eselect-timezone-0.1.ebuild:
+  moved to web
+
 *eselect-timezone-0.1 (14 Oct 2012)
 
   14 Oct 2012; Christoph Junghans <ottxor@gentoo.org>

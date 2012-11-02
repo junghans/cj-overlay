@@ -6,16 +6,14 @@ EAPI=4
 
 DESCRIPTION="Manages timezone selection"
 HOMEPAGE="http://www.gentoo.org"
-SRC_URI=""
+SRC_URI="http://dev.gentoo.org/~ottxor/distfiles/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-S="${T}"
-
 src_install() {
 	insinto /usr/share/eselect/modules
-	newins "${FILESDIR}/timezone.eselect-${PV}" timezone.eselect
+	doins timezone.eselect
 }
