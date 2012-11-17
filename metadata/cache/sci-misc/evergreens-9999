@@ -1,5 +1,5 @@
 dev-vcs/mercurial
-dev-lang/perl sys-apps/gawk sys-apps/sed app-shells/bash app-text/wdiff app-text/a2ps app-editors/vim tk? ( dev-util/tkdiff )
+dev-lang/perl sys-apps/sed app-shells/bash sys-apps/grep dev-util/cwdiff sys-apps/coreutils vim? ( app-editors/vim ) tk? ( dev-util/tkdiff )
 0
 
 
@@ -8,7 +8,7 @@ GPL-2
 Christoph's useful scripts
 ~amd64 ~x86 ~x86-macos
 eutils mercurial multilib toolchain-funcs user
-examples tk
+examples tk vim
 
 
 
