@@ -1,6 +1,10 @@
 # ChangeLog for sci-misc/evergreens
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  17 Nov 2012; Christoph Junghans <ottxor@gentoo.org> evergreens-9999.ebuild,
+  metadata.xml:
+  sci-misc/evergreens: clean up
 
   23 Dec 2011; Christoph Junghans <ottxor@gentoo.org> evergreens-9999.ebuild:
   added support for prefix
@@ -8,4 +12,3 @@
   18 Sep 2010; Christoph Junghans <kleiner_otti@gmx.de>
   evergreens-9999.ebuild, +metadata.xml:
   Changed to EAPI 3
-
