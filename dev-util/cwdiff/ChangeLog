@@ -1,8 +1,0 @@
-  17 Nov 2012; Christoph Junghans <ottxor@gentoo.org> metadata.xml:
-  dev-util/cwdiff: updated metadata.xml
-
-*cwdiff-0.2.2 (17 Nov 2012)
-
-  17 Nov 2012; Christoph Junghans <ottxor@gentoo.org> +cwdiff-0.2.2.ebuild,
-  +metadata.xml:
-  dev-util/cwdiff: initial commit
