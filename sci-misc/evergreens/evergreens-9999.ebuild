@@ -26,7 +26,7 @@ RDEPEND="
 	vim? ( app-editors/vim )
 	tk? ( dev-util/tkdiff )"
 
-EHG_REPO_URI="https://evergreens.cj-overlay.googlecode.com/hg/"
+EHG_REPO_URI="https://code.google.com/p/cj-overlay.evergreens/"
 
 S="${WORKDIR}/${EHG_REPO_URI##*/}"
 
