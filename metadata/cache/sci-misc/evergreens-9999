@@ -6,7 +6,7 @@ dev-lang/perl sys-apps/sed app-shells/bash sys-apps/grep dev-util/cwdiff sys-app
 http://code.google.com/p/cj-overlay/source/list?repo=evergreens
 GPL-2
 Christoph's useful scripts
-~amd64 ~x86 ~x86-macos
+~amd64 ~arm ~x86 ~amd64-linux ~x86-macos
 eutils mercurial multilib toolchain-funcs user
 examples tk vim
 
