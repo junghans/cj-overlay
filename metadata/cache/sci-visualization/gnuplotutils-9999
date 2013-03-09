@@ -1,4 +1,4 @@
->=dev-util/cmake-2.8.4 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) dev-vcs/mercurial
+sys-devel/make >=dev-util/cmake-2.8.9 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) dev-vcs/mercurial
 dev-lang/perl sys-apps/sed sci-visualization/gnuplot virtual/latex-base app-text/txt2tags app-text/ghostscript-gpl sys-apps/coreutils
 0
 
