@@ -2,6 +2,12 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*showbuild-0.7-r1 (10 Mar 2013)
+
+  10 Mar 2013; Christoph Junghans <ottxor@gentoo.org> +showbuild-0.7-r1.ebuild,
+  -showbuild-0.6-r1.ebuild, metadata.xml, showbuild-0.7.ebuild:
+  clean up, stable 0.7, remove tailf dep
+
   23 Jan 2013; Christoph Junghans <ottxor@gentoo.org> showbuild-0.7.ebuild:
   added ~arm
 
