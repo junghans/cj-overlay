@@ -6,7 +6,7 @@ tailf? ( sys-apps/util-linux ) !tailf? ( sys-apps/coreutils ) app-shells/bash
 http://cj-overlay.googlecode.com
 GPL-2
 Script to follow build.log of running ebuilds
-~amd64 ~arm ~x86 ~amd64-linux ~x86-linux ~x86-macos
+amd64 arm x86 ~amd64-linux ~x86-linux ~x86-macos
 
 +tailf
 x86-macos? ( !tailf )
