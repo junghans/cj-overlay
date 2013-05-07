@@ -2,6 +2,12 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*showbuild-0.8 (07 May 2013)
+
+  07 May 2013; Christoph Junghans <ottxor@gentoo.org> +files/showbuild-0.8,
+  +showbuild-0.8.ebuild:
+  version bump
+
   30 Mar 2013; Christoph Junghans <ottxor@gentoo.org> -files/showbuild-0.6,
   -showbuild-0.7.ebuild, showbuild-0.7-r1.ebuild:
   stable + remove old
