@@ -7,7 +7,7 @@ http://gnuplotutils.googlecode.com
 GPL-2
 Some useful scripts for gnuplot
 ~amd64 ~x86 ~x86-macos
-base cmake-utils eutils flag-o-matic mercurial multilib toolchain-funcs user
+cmake-utils eutils flag-o-matic mercurial multilib toolchain-funcs user
 examples
 
 
