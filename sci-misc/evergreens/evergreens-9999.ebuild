@@ -36,6 +36,8 @@ src_install () {
 	dosym fcat /usr/bin/fless
 	dosym fcat /usr/bin/fview
 	dodoc README
+	insinto /usr/share/${PN}
+	doins Makefile.incl
 	exeinto /usr/share/${PN}/examples
 	use examples && doexe skeleton.*
 }
