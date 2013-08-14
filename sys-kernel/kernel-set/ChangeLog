@@ -1,3 +1,6 @@
+  14 Aug 2013; Christoph Junghans <ottxor@gentoo.org> kernel-set-0.ebuild:
+  added keywords
+
 *kernel-set-0 (09 Mar 2013)
 
   09 Mar 2013; Christoph Junghans <ottxor@gentoo.org> +kernel-set-0.ebuild,
