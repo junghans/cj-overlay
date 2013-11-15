@@ -1,0 +1,7 @@
+*openntpd-20080406-r5 (15 Nov 2013)
+
+  15 Nov 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/openntpd.conf.d-20080406-r3, +files/openntpd.init.d-20080406-r4,
+  +files/openntpd.logrotate-20080406-r5, +files/openntpd.service-20080406-r3,
+  +metadata.xml, +openntpd-20080406-r5.ebuild:
+  added for testing
