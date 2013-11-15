@@ -1,0 +1,5 @@
+*rssh-2.3.4_p3 (15 Nov 2013)
+
+  15 Nov 2013; Christoph Junghans <ottxor@gentoo.org>
+  +files/rssh-2.3.4_p3-autotools.patch, +metadata.xml, +rssh-2.3.4_p3.ebuild:
+  added for testing
