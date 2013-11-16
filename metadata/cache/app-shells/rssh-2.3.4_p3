@@ -14,7 +14,7 @@ static subversion
 
 5
 
-compile configure install postinst prepare test
+compile configure install prepare test
 
 
 
