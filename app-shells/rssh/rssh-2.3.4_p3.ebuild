@@ -14,16 +14,18 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~ppc ~x86"
-IUSE="static"
+IUSE="static subversion"
 
 RDEPEND="virtual/ssh"
 
-EPATCH_SUFFIX="diff"
-EPATCH_FORCE="yes"
-PATCHES=( "${WORKDIR}"/debian/patches/fixes "${FILESDIR}/${P}"-autotools.patch )
-AUTOTOOLS_AUTORECONF=1 #due to debian patches
 S="${WORKDIR}/${MY_P}"
 DOCS=( AUTHORS ChangeLog CHROOT INSTALL README TODO )
+
+src_prepare() {
+	epatch "${WORKDIR}"/debian/patches/fixes/*.diff "${FILESDIR}/${P}"-autotools.patch
+	use subversion && epatch "${WORKDIR}"/debian/patches/features/subversion.diff
+	AUTOTOOLS_AUTORECONF=1 autotools-utils_src_prepare #due to debian patches
+}
 
 src_configure() {
 	local myeconfargs=(
@@ -33,4 +35,11 @@ src_configure() {
 		$(use_enable static)
 	)
 	autotools-utils_src_configure
+}
+
+pkg_postinst() {
+	if use subversion && [[ -f "${EROOT}"/etc/rssh.conf ]]; then
+		grep -qE 'user=.*:[01]{5}:' "${EROOT}"/etc/rssh.conf && \
+			ewarn "Your /etc/rssh.conf needs update, subversion support introduced an extra access bit!"
+	fi
 }

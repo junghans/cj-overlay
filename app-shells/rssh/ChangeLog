@@ -1,3 +1,6 @@
+  16 Nov 2013; Christoph Junghans <ottxor@gentoo.org> rssh-2.3.4_p3.ebuild:
+  added subversion support
+
 *rssh-2.3.4_p3 (15 Nov 2013)
 
   15 Nov 2013; Christoph Junghans <ottxor@gentoo.org>
