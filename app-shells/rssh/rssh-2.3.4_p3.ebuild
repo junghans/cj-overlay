@@ -37,9 +37,11 @@ src_configure() {
 	autotools-utils_src_configure
 }
 
-pkg_postinst() {
+src_install() {
+	autotools-utils_src_install
 	if use subversion && [[ -f "${EROOT}"/etc/rssh.conf ]]; then
-		grep -qE 'user=.*:[01]{5}:' "${EROOT}"/etc/rssh.conf && \
-			ewarn "Your /etc/rssh.conf needs update, subversion support introduced an extra access bit!"
+		awk -f conf_convert "${EROOT}"/etc/rssh.conf > "${T}/rssh.conf" || die
+		insinto /etc
+		doins "${T}/rssh.conf"
 	fi
 }
