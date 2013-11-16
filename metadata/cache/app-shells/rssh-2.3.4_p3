@@ -1,0 +1,22 @@
+
+virtual/ssh
+0
+mirror://sourceforge/rssh/rssh-2.3.4.tar.gz mirror://debian/pool/main/r/rssh/rssh_2.3.4-3.debian.tar.xz
+
+http://rssh.sourceforge.net/
+BSD
+Restricted shell for SSHd
+~amd64 ~arm ~ppc ~x86
+autotools autotools-utils eutils libtool multilib multiprocessing toolchain-funcs user
+static subversion
+
+
+
+5
+
+compile configure install postinst prepare test
+
+
+
+
+
