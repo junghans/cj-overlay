@@ -6,7 +6,7 @@ EAPI=5
 
 inherit vcs-snapshot
 
-COMMIT="d2489783d7b3c9cabc7c2cf0ac22685dfb2465b0"
+COMMIT="6803c37d2a3a37b7787b9093202c7545cc6d127a"
 DESCRIPTION="ssh via a chain of intermediary hosts"
 HOMEPAGE="https://github.com/ryancdotorg/ssh-chain"
 SRC_URI="${HOMEPAGE}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
