@@ -11,7 +11,8 @@ path=${1%/*}
 [[ -z $path ]] && path="."
 for l in $(scanelf -n "$@" | awk '/^ET/{gsub(/,/,"\n",$2);print $2}' | sort -u); do
   [[ $l = libgcc* || $l = libstdc* ]] && continue
-  [[ -f ${path}/$l ]] && echo "Found local version of $l" >&2 && continue
+  lp=$(find ${path} -type f -name "${l}")
+  [[ -n ${lp} ]] && echo "Found local version of $l ($lp)" >&2 && continue
   lib="$(find /lib{,64} /usr/lib{,64} -maxdepth 2 -name "$l")"
   [[ -z $lib ]] && echo "Could not find $l" >&2 && continue
   pkg=$(qfile -C -e -q "$lib")
