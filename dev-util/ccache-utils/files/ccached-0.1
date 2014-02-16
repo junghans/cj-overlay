@@ -1,0 +1,37 @@
+#! /bin/bash
+
+die() {
+  echo -e "$*"
+  exit 1
+}
+
+root_cache_dir=/var/tmp/ccache
+ccache_dir=/usr/lib/ccache/bin
+quiet="no"
+
+if [ "$1" = "--help" ]; then
+  echo "Usage: ${0##*/} [-q]" 
+  echo "This is a simple wrapper which:"
+  echo "-adds ccache path"
+  echo "-if run as root it uses $root_cache_dir, if exist"
+  echo "-runs rest of the options as command"
+  exit 0
+fi
+
+if [ "$1" = "-q" ]; then
+  quiet="yes"
+  shift
+fi
+
+[ -z "$1" ] && die "Missing argument"
+
+[ -d "$ccache_dir" ] || die "ccache dir $ccache_dir not found"
+export PATH="/usr/lib/ccache/bin:$PATH"
+
+[ "$quiet" = "yes" ] || echo "Running ${0##*/} as $(whoami) - gcc is $(type gcc)"
+if [ "$(whoami)" = "root" ]; then
+  [ -d "$root_cache_dir" ] && export CCACHE_DIR="$root_cache_dir"
+fi
+unset root_cache_dir ccache_dir quiet
+unset -f die
+$@

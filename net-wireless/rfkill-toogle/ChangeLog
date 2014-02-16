@@ -1,0 +1,5 @@
+*rfkill-toogle-1 (07 Jan 2014)
+
+  07 Jan 2014; Christoph Junghans <ottxor@gentoo.org> +metadata.xml,
+  +rfkill-toogle-1.ebuild:
+  initial commit

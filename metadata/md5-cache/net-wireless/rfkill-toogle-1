@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DEPEND=net-wireless/rfkill
+DESCRIPTION=script to toggle rfkill status
+EAPI=5
+HOMEPAGE=http://code.google.com/p/cj-overlay
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=net-wireless/rfkill app-shells/bash
+SLOT=0
+_md5_=5f5caeeae55aeb6cd0fad6a3c361cfa0

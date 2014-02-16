@@ -1,0 +1,21 @@
+#!/bin/bash
+
+die() {
+  echo "$*" >&2
+  exit 1
+}
+
+[[ -z $1 ]] && die "Missing argument"
+
+path=${1%/*}
+[[ -z $path ]] && path="."
+for l in $(scanelf -n "$@" | awk '/^ET/{gsub(/,/,"\n",$2);print $2}' | sort -u); do
+  [[ $l = libgcc* || $l = libstdc* ]] && continue
+  lp=$(find ${path} -type f -name "${l}")
+  [[ -n ${lp} ]] && echo "Found local version of $l ($lp)" >&2 && continue
+  lib="$(find /lib{,64} /usr/lib{,64} -maxdepth 2 -name "$l")"
+  [[ -z $lib ]] && echo "Could not find $l" >&2 && continue
+  pkg=$(qfile -C -e -q "$lib")
+  [[ -z $pkg ]] && echo "No package found containing $lib" >&2 && continue
+  echo $pkg | eix '-|*' --format '<markedversions:NAMESLOT>'
+done | sort -u 

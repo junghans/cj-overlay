@@ -1,0 +1,38 @@
+#! /bin/bash -e
+
+nl="
+"
+
+update=false
+[[ $1 == --update ]] && update=true && shift
+
+urllist="$1"
+urllist="${urllist:=$HOME/files/urllist}"
+
+die() {
+  echo "$*" >&2
+  exit 1
+}
+
+checklist() {
+  for i in $(<$urllist); do
+    url=$(echo "$i" | cut -d " " -f 1)
+    sum="$(wget -q $url -O - | grep -v javascript.*getTime | sort | md5sum | cut -d " " -f 1)"
+    oldsum="$(echo "$i" | cut -d " " -f 2)"
+    if [[ $sum = $oldsum ]]; then
+      :
+    else
+      echo "$url has changed (old ${oldsum},new ${sum})"
+      if $update; then
+        sed -i "s/${oldsum}/${sum}/" $urllist
+        echo "Checksum of $url updated"
+      fi
+    fi
+  done
+}
+
+[[ -f $urllist ]] || die "Could not find $urllist, add list as an argument"
+
+IFS="$nl"
+msg="$(checklist)"
+[[ -n $msg ]] && echo "$msg"

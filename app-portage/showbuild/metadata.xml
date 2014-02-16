@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>ottxor@gentoo.org</email>
+		<name>Christoph Junghans</name>
+	</maintainer>
+	<use>
+		<flag name='tailf'>use tailf from <pkg>sys-apps/util-linux</pkg> instead of 'tail -f' from sys-apps/coreutils</flag>
+	</use>
+</pkgmetadata>
