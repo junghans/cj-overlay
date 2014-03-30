@@ -1,0 +1,8 @@
+#!/bin/bash
+if [[ $1 = *.ebuild ]]; then
+  echo /usr/portage/$(pwd | sed 's:^.*/\([^/]*/[^/]*\):\1:')/$1
+elif [[ $1 = *.eclass ]]; then
+  echo /usr/portage/${PWD##*/}/$1
+else
+  echo Hmm, please change $0
+fi
