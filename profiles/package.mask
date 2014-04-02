@@ -1,5 +1,0 @@
-# Christoph Junghans (18 Sept 10)
-# kleiner_otti@gmx.de
-# mask live ebuild
-=sci-misc/evergreens-9999
-=sci-visualization/gnuplotutils-9999
