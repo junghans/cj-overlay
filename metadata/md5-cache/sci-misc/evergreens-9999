@@ -4,9 +4,8 @@ DESCRIPTION=Christoph's useful scripts
 EAPI=4
 HOMEPAGE=http://code.google.com/p/cj-overlay/source/list?repo=evergreens
 IUSE=examples tk vim
-KEYWORDS=~amd64 ~arm ~x86 ~amd64-linux ~x64-macos ~x86-macos
 LICENSE=GPL-2
 RDEPEND=dev-lang/perl sys-apps/sed app-shells/bash sys-apps/grep dev-util/cwdiff sys-apps/coreutils vim? ( app-editors/vim ) tk? ( dev-util/tkdiff )
 SLOT=0
-_eclasses_=eutils	40081e8c7e7f7c4f9db349a1d6d52925	mercurial	6bb94b704fb44f17b02994ca3fa756a9	multilib	fac675dcccf94392371a6abee62d909f	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
-_md5_=6039d7a575d7e73666bcdc0fe767a824
+_eclasses_=eutils	af81d52c25ec93fbdff71e0efb0de7b7	mercurial	6bb94b704fb44f17b02994ca3fa756a9	multilib	fac675dcccf94392371a6abee62d909f	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
+_md5_=0a8e12d89e8dc1603e71ace42ffd29a3
