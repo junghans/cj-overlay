@@ -12,7 +12,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x64-macos ~x86-macos"
+KEYWORDS=""
 IUSE="examples tk vim"
 
 DEPEND=""
