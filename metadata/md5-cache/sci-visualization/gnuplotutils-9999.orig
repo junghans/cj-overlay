@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=sys-devel/make >=dev-util/cmake-2.8.9 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) dev-vcs/mercurial
+DESCRIPTION=Some useful scripts for gnuplot
+EAPI=4
+HOMEPAGE=http://gnuplotutils.googlecode.com
+IUSE=examples
+KEYWORDS=~amd64 ~x86 ~x86-macos
+LICENSE=GPL-2
+RDEPEND=dev-lang/perl sys-apps/sed sci-visualization/gnuplot virtual/latex-base app-text/txt2tags app-text/ghostscript-gpl sys-apps/coreutils
+SLOT=0
+_eclasses_=cmake-utils	7798d4361fbdd043014e635a1753e076	eutils	af81d52c25ec93fbdff71e0efb0de7b7	flag-o-matic	9a539029fe1d390c1828ff633baf26b5	mercurial	6bb94b704fb44f17b02994ca3fa756a9	multilib	fac675dcccf94392371a6abee62d909f	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
+_md5_=44a03f492ce39048b764e27a6a040c19
