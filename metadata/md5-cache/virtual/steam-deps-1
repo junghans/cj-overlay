@@ -1,0 +1,6 @@
+DEFINED_PHASES=-
+DESCRIPTION=Virtual to provide steam dependency
+EAPI=5
+RDEPEND=app-emulation/emul-linux-x86-baselibs app-emulation/emul-linux-x86-db app-emulation/emul-linux-x86-gtklibs app-emulation/emul-linux-x86-medialibs app-emulation/emul-linux-x86-opengl app-emulation/emul-linux-x86-sdl app-emulation/emul-linux-x86-soundlibs app-emulation/emul-linux-x86-xlibs media-libs/libtxc_dxtn[abi_x86_32(-)]
+SLOT=0
+_md5_=16cc6160705ccee1e7d6a774a24f61d1
