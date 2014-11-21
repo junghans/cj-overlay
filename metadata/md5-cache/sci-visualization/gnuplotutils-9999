@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=sys-devel/make >=dev-util/cmake-2.8.9 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) dev-vcs/mercurial
+DEPEND=sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) dev-vcs/mercurial
 DESCRIPTION=Some useful scripts for gnuplot
 EAPI=4
 HOMEPAGE=http://gnuplotutils.googlecode.com
@@ -7,5 +7,5 @@ IUSE=examples
 LICENSE=GPL-2
 RDEPEND=dev-lang/perl sys-apps/sed sci-visualization/gnuplot virtual/latex-base app-text/txt2tags app-text/ghostscript-gpl sys-apps/coreutils
 SLOT=0
-_eclasses_=cmake-utils	10b6a99f9058ac1b830d00b3421f04e4	eutils	06133990e861be0fe60c2b428fd025d9	flag-o-matic	9836bc51856bcaffac53c9cd4b59a8be	mercurial	6bb94b704fb44f17b02994ca3fa756a9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_eclasses_=cmake-utils	e2cc76ea65ae78da8e4696dad93f5d29	eutils	6faef4c127028ccbba3a11400d24ae34	flag-o-matic	eda1c0b5ba85b3eeb555a071d69eb819	mercurial	2fbda5894dda6392b71334ee9a92de0b	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac
 _md5_=ff4186edcc3edc2defe97d1737d6ad77
