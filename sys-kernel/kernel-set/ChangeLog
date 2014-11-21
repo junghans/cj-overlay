@@ -1,3 +1,8 @@
+*kernel-set-1 (21 Nov 2014)
+
+  21 Nov 2014; Christoph Junghans <ottxor@gentoo.org> +kernel-set-1.ebuild:
+  version bump
+
   14 Aug 2013; Christoph Junghans <ottxor@gentoo.org> kernel-set-0.ebuild:
   added keywords
 
