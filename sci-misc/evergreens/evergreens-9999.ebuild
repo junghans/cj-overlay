@@ -23,6 +23,7 @@ RDEPEND="
 	sys-apps/grep
 	dev-util/cwdiff
 	sys-apps/coreutils
+	kernel_linux? ( sys-fs/inotify-tools )
 	vim? ( app-editors/vim )
 	tk? ( dev-util/tkdiff )"
 
