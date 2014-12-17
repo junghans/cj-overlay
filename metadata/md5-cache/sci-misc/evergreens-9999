@@ -5,7 +5,7 @@ EAPI=4
 HOMEPAGE=http://code.google.com/p/cj-overlay/source/list?repo=evergreens
 IUSE=examples tk vim
 LICENSE=GPL-2
-RDEPEND=dev-lang/perl sys-apps/sed app-shells/bash sys-apps/grep dev-util/cwdiff sys-apps/coreutils vim? ( app-editors/vim ) tk? ( dev-util/tkdiff )
+RDEPEND=dev-lang/perl sys-apps/sed app-shells/bash sys-apps/grep dev-util/cwdiff sys-apps/coreutils kernel_linux? ( sys-fs/inotify-tools ) vim? ( app-editors/vim ) tk? ( dev-util/tkdiff )
 SLOT=0
 _eclasses_=eutils	6faef4c127028ccbba3a11400d24ae34	mercurial	2fbda5894dda6392b71334ee9a92de0b	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac
-_md5_=0a8e12d89e8dc1603e71ace42ffd29a3
+_md5_=eccc7d690d702d904b0c4650e7e8a485
