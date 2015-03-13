@@ -1,11 +1,11 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="3"
 
 DESCRIPTION="Some useful ccache wrappers"
-HOMEPAGE="http://cj-overlay.googlecode.com"
+HOMEPAGE="https://github.com/junghans/cj-overlay"
 SRC_URI=""
 
 LICENSE="GPL-2"
