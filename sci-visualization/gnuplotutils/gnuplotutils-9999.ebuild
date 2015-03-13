@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=4
 
-inherit cmake-utils mercurial
+inherit cmake-utils git-r3
 
 DESCRIPTION="Some useful scripts for gnuplot"
-HOMEPAGE="http://gnuplotutils.googlecode.com"
+HOMEPAGE="https://github.com/junghans/gnuplotutils"
 SRC_URI=""
 
 LICENSE="GPL-2"
@@ -24,6 +24,4 @@ RDEPEND="dev-lang/perl
 		app-text/ghostscript-gpl
 		sys-apps/coreutils"
 
-EHG_REPO_URI="https://gnuplotutils.googlecode.com/hg/"
-
-S="${WORKDIR}/${EHG_REPO_URI##*/}"
+EGIT_REPO_URI="https://github.com/junghans/gnuplotutils.git git://github.com/junghans/gnuplotutils.git"
