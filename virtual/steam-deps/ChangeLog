@@ -1,5 +1,0 @@
-*steam-deps-1 (20 Jul 2014)
-
-  20 Jul 2014; Christoph Junghans <ottxor@gentoo.org> +metadata.xml,
-  +steam-deps-1.ebuild:
-  initial commit
