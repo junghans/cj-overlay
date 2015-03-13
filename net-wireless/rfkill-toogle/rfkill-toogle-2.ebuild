@@ -5,7 +5,7 @@
 EAPI=5
 
 DESCRIPTION="script to toggle rfkill status"
-HOMEPAGE="http://code.google.com/p/cj-overlay"
+HOMEPAGE="https://github.com/junghans"
 SRC_URI=""
 
 LICENSE="GPL-2"
