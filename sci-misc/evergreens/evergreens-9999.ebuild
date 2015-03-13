@@ -1,13 +1,13 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=4
 
-inherit mercurial
+inherit git-r3
 
 DESCRIPTION="Christoph's useful scripts"
-HOMEPAGE="http://code.google.com/p/cj-overlay/source/list?repo=evergreens"
+HOMEPAGE="https://github.com/junghans/evergreens"
 SRC_URI=""
 
 LICENSE="GPL-2"
@@ -27,16 +27,14 @@ RDEPEND="
 	vim? ( app-editors/vim )
 	tk? ( dev-util/tkdiff )"
 
-EHG_REPO_URI="https://code.google.com/p/cj-overlay.evergreens/"
-
-S="${WORKDIR}/${EHG_REPO_URI##*/}"
+EGIT_REPO_URI="https://github.com/junghans/evergreens.git git://github.com/junghans/evergreens.git"
 
 src_install () {
 	dobin fcat findgrep guard hgrep loggrep sshalias
 	use vim && dobin wvim fvim vimless vimmanless
 	dosym fcat /usr/bin/fless
 	dosym fcat /usr/bin/fview
-	dodoc README
+	dodoc README.md
 	insinto /usr/share/${PN}
 	doins Makefile.incl
 	exeinto /usr/share/${PN}/examples
