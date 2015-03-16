@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Mar 2015; Christoph Junghans <ottxor@gentoo.org> gnuplotutils-9999.ebuild:
+  update live ebuild
+
   13 Mar 2015; Christoph Junghans <ottxor@gentoo.org> gnuplotutils-9999.ebuild:
   updated upstream location
 
