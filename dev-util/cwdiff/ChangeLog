@@ -1,3 +1,6 @@
+  18 Mar 2015; Christoph Junghans <ottxor@gentoo.org> cwdiff-9999.ebuild:
+  fixed build with mercurial
+
 *cwdiff-9999 (16 Mar 2015)
 
   16 Mar 2015; Christoph Junghans <ottxor@gentoo.org> +cwdiff-9999.ebuild,

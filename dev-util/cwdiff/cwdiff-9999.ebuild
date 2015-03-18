@@ -32,6 +32,6 @@ RDEPEND="
 	"
 
 src_install() {
-	emake DESTDIR="${ED}" "$(usex mercurial '' 'HGRCDIR=')" install
+	emake DESTDIR="${ED}" $(usex mercurial '' 'HGRCDIR=') install
 	dodoc README.md
 }
