@@ -1,9 +1,0 @@
-DEFINED_PHASES=install postinst postrm
-DESCRIPTION=portage kernel set, prevents kernels from been depcleaned
-EAPI=5
-HOMEPAGE=http://gentoo-pr.org/node/18
-KEYWORDS=~amd64 ~x86
-LICENSE=GPL-2
-RDEPEND=>=sys-apps/portage-2.2
-SLOT=0
-_md5_=b4adbacec1f7221f8661142dea629b48

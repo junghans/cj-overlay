@@ -7,5 +7,5 @@ IUSE=a2ps mercurial
 LICENSE=GPL-2
 RDEPEND=sys-apps/sed app-shells/bash app-text/wdiff sys-apps/diffutils a2ps? ( app-text/a2ps ) mercurial? ( dev-vcs/mercurial )
 SLOT=0
-_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	git-r3	3a2bd0ae504c33a50061885480f3def3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	b99aa37f734b5d426efd83b2f271cece
-_md5_=f41ebb9a68b2d3e4ad83801a7370c1ce
+_eclasses_=eutils	43da5163ba106e87d22d2e7d6d67537f	git-r3	1502b9838d043db47700b8120083e637	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=782e9a910a3a5c33ce60f381a8481867

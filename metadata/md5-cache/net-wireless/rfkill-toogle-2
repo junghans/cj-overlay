@@ -7,4 +7,4 @@ KEYWORDS=~amd64
 LICENSE=GPL-2
 RDEPEND=|| ( net-misc/networkmanager net-wireless/rfkill ) app-shells/bash
 SLOT=0
-_md5_=912208d5c8e8949245f1945b69a33e05
+_md5_=aa52afe63e7c26e5acf19dd706f86cb0
