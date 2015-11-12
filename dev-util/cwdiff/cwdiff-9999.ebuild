@@ -18,7 +18,7 @@ HOMEPAGE="https://github.com/junghans/cwdiff"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="a2ps mercurial"
+IUSE="mercurial"
 
 DEPEND="sys-apps/help2man
 	sys-apps/coreutils"
@@ -27,7 +27,6 @@ RDEPEND="
 	app-shells/bash
 	app-text/wdiff
 	sys-apps/diffutils
-	a2ps? ( app-text/a2ps )
 	mercurial? ( dev-vcs/mercurial )
 	"
 
