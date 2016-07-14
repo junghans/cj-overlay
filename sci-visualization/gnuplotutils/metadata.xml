@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<maintainer>
-  <email>christoph.junghans@googlemail.com</email>
-</maintainer>
-<longdescription lang="en">
+	<maintainer type="person">
+		<email>ottxor@gentoo.org</email>
+		<name>Christoph Junghans</name>
+	</maintainer>
+	<longdescription lang="en">
 	A perl script to generate plots for publications using gnuplot
 	and a shell script to speed up work with gnuplot
-</longdescription>
+	</longdescription>
 </pkgmetadata>
