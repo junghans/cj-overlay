@@ -26,11 +26,11 @@ cat > virtualbox <<"EOF"
 stop() {
 	local user uuid name
 	for user in $(/usr/sbin/groupmems -g vboxusers -l); do
-  		for uuid in $(su - $user -c '/usr/bin/VBoxManage -q list runningvms' | sed -n 's/^.*{\([^}]*\)}$/\1/p'); do
+		for uuid in $(su - $user -c '/usr/bin/VBoxManage -q list runningvms' | sed -n 's/^.*{\([^}]*\)}$/\1/p'); do
 			name=$(su - $user -c "/usr/bin/VBoxManage showvminfo $uuid" | awk '/^Name:/{print $2}')
 			ebegin "Save state of vm '$name' of user $user"
 			su - $user -c "/usr/bin/VBoxManage controlvm $uuid savestate" &>/dev/null
-	          	eend $?
+			eend $?
 		done
 	done
 }
