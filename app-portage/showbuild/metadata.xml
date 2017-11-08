@@ -5,7 +5,4 @@
 		<email>ottxor@gentoo.org</email>
 		<name>Christoph Junghans</name>
 	</maintainer>
-	<use>
-		<flag name='tailf'>use tailf from <pkg>sys-apps/util-linux</pkg> instead of 'tail -f' from sys-apps/coreutils</flag>
-	</use>
 </pkgmetadata>
