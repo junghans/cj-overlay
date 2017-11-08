@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>ottxor@gentoo.org</email>
-		<name>Christoph Junghans</name>
-	</maintainer>
-	<longdescription lang="en">
-	Some useful script for ccache: camake and ccached
-	Examples: 'ccached gcc' is a ccached gcc call
-	          'camake' is a ccached version of make 
-	</longdescription>
+    <maintainer type="person">
+        <email>ottxor@gentoo.org</email>
+        <name>Christoph Junghans</name>
+    </maintainer>
+    <longdescription lang="en">
+    Some useful script for ccache: camake and ccached
+    Examples: 'ccached gcc' is a ccached gcc call
+              'camake' is a ccached version of make 
+    </longdescription>
 </pkgmetadata>
