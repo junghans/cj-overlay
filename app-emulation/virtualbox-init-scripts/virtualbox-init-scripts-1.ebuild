@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=8
 
 DESCRIPTION="init.d script to stop vms on shutdown"
 HOMEPAGE="https://bugs.gentoo.org/show_bug.cgi?id=403337"
