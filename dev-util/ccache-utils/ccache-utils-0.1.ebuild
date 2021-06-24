@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="3"
+EAPI="8"
 
 DESCRIPTION="Some useful ccache wrappers"
 HOMEPAGE="https://github.com/junghans/cj-overlay"
@@ -14,6 +14,8 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="dev-util/ccache"
+
+S="${T}"
 
 src_install () {
 	newbin "${FILESDIR}/ccached-${PV}" ccached
